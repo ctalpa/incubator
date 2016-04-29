@@ -1,0 +1,30 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "bookAuthor",
+            "otherEntityName": "author",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "name",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": "3"
+        },
+        {
+            "fieldName": "isbn",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160429080717",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "book",
+    "pagination": "pager"
+}

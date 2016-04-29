@@ -62,8 +62,6 @@ server:
 jhipster:
     cache: # Hibernate 2nd level cache, used by CacheConfiguration
         timeToLiveSeconds: 3600
-        hazelcast:
-            backupCount: 1
         ehcache:
             maxBytesLocalHeap: 16M
     mail: # specific JHipster mail property, for standard properties see MailProperties

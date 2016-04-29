@@ -40,7 +40,6 @@
         <commons-lang.version>2.6</commons-lang.version>
         <gatling.version>2.1.7</gatling.version>
         <gatling-maven-plugin.version>2.1.7</gatling-maven-plugin.version>
-        <hazelcast.version>3.6.1</hazelcast.version>
         <hibernate.version>4.3.11.Final</hibernate.version>
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -154,16 +153,6 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.hazelcast</groupId>
-            <artifactId>hazelcast</artifactId>
-            <version>${hazelcast.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.hazelcast</groupId>
-            <artifactId>hazelcast-wm</artifactId>
-            <version>${hazelcast.version}</version>
         </dependency>
         <dependency>
             <groupId>com.jayway.awaitility</groupId>

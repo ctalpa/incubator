@@ -1,0 +1,23 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "surname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "birthday",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20160429074557",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "author",
+    "pagination": "pager"
+}

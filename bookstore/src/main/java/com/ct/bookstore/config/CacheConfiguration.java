@@ -9,8 +9,6 @@ import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.*;
 import org.springframework.cache.ehcache.EhCacheCacheManager;
-import org.springframework.security.core.session.SessionRegistry;
-import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.util.Assert;
 
 import javax.annotation.PreDestroy;
@@ -70,13 +68,5 @@ public class CacheConfiguration {
         EhCacheCacheManager ehCacheManager = new EhCacheCacheManager();
         ehCacheManager.setCacheManager(cacheManager);
         return ehCacheManager;
-    }
-
-    /**
-     * Use by Spring Security, to get events from Hazelcast.
-     */
-    @Bean
-    public SessionRegistry sessionRegistry() {
-        return new SessionRegistryImpl();
     }
 }

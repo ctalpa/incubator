@@ -7,7 +7,7 @@
     "serverPort": "8080",
     "authenticationType": "session",
     "hibernateCache": "ehcache",
-    "clusteredHttpSession": "hazelcast",
+    "clusteredHttpSession": "no",
     "websocket": "spring-websocket",
     "databaseType": "sql",
     "devDatabaseType": "h2Disk",
@@ -15,7 +15,7 @@
     "searchEngine": "elasticsearch",
     "buildTool": "maven",
     "enableSocialSignIn": true,
-    "rememberMeKey": "aeacbd6813807d5da469fa276f79a4e8c66afeca",
+    "rememberMeKey": "a22d8732e2cece0a647cacd2ebeefe2946f8bfd0",
     "useSass": true,
     "applicationType": "monolith",
     "testFrameworks": [
