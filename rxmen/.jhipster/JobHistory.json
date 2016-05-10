@@ -1,0 +1,34 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "employees",
+      "otherEntityName": "employee",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "jobHistory"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "customer",
+      "otherEntityName": "customer",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "jobHistory"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "startDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "endDate",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "changelogDate": "20160510163711",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no"
+}

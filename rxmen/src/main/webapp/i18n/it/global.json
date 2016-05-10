@@ -7,6 +7,14 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entità",
+                "customer": "Customer",
+                "location": "Location",
+                "employee": "Employee",
+                "restWorkDays": "Rest Work Days",
+                "dayOff": "Day Off",
+                "job": "Job",
+                "task": "Task",
+                "jobHistory": "Job History",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,11 @@
+{
+    "rxmenApp": {
+        "RestWorkDaysStatus" : {
+            "null": "",
+            "PLANNED": "PLANNED",
+            "WAITING": "WAITING",
+            "APPROVED": "APPROVED",
+            "REJECTED": "REJECTED"
+        }
+    }
+}

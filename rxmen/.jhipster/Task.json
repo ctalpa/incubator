@@ -1,0 +1,55 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "job",
+      "otherEntityName": "job",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "taskId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "taskDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "taskStatus",
+      "fieldType": "TaskStatus",
+      "fieldValues": "CREATED,RUNNING,ENDED,SUSPENDED"
+    },
+    {
+      "fieldId": 6,
+      "fieldName": "taskPriority",
+      "fieldType": "TaskPriority",
+      "fieldValues": "LOW,MEDIUM,HIGH,VERY_HIGH"
+    },
+    {
+      "fieldId": 7,
+      "fieldName": "taskType",
+      "fieldType": "TaskType",
+      "fieldValues": "PLANNED,UNEXPECTED,REPETITIVE"
+    }
+  ],
+  "changelogDate": "20160510163710",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass"
+}

@@ -1,0 +1,39 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "customer",
+      "otherEntityName": "location",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "customer"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "jobHistory",
+      "otherEntityName": "jobHistory",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "custumerId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160510163704",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass"
+}

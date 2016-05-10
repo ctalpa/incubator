@@ -1,0 +1,10 @@
+{
+    "rxmenApp": {
+        "DayOffType" : {
+            "null": "",
+            "HOLIDAY": "HOLIDAY",
+            "SICKNESS": "SICKNESS",
+            "LICENSE": "LICENSE"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "tasks",
+      "otherEntityName": "task",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "job"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "employees",
+      "otherEntityName": "employee",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "job"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160510163709",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceClass"
+}

@@ -1,0 +1,58 @@
+
+<div>
+    <h2><span translate="rxmenApp.employee.detail.title">Employee</span> {{vm.employee.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="rxmenApp.employee.employeeId">Employee Id</span></dt>
+        <dd>
+            <span>{{vm.employee.employeeId}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.employee.firstName">First Name</span></dt>
+        <dd>
+            <span>{{vm.employee.firstName}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.employee.lastName">Last Name</span></dt>
+        <dd>
+            <span>{{vm.employee.lastName}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.employee.email">Email</span></dt>
+        <dd>
+            <span>{{vm.employee.email}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.employee.phoneNumber">Phone Number</span></dt>
+        <dd>
+            <span>{{vm.employee.phoneNumber}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.employee.hireDate">Hire Date</span></dt>
+        <dd>
+            <span>{{vm.employee.hireDate | date:'medium'}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.employee.restWorkDays">Rest Work Days</span></dt>
+        <dd>
+            <a ui-sref="rest-work-days-detail({id:vm.employee.restWorkDaysId})">{{vm.employee.restWorkDaysId}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.employee.job">Job</span></dt>
+        <dd>
+            <a ui-sref="job-detail({id:vm.employee.jobId})">{{vm.employee.jobId}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.employee.jobHistory">Job History</span></dt>
+        <dd>
+            <a ui-sref="job-history-detail({id:vm.employee.jobHistoryId})">{{vm.employee.jobHistoryId}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

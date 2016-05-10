@@ -1,0 +1,53 @@
+
+<div>
+    <h2><span translate="rxmenApp.location.detail.title">Location</span> {{vm.location.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="rxmenApp.location.locationId">Location Id</span></dt>
+        <dd>
+            <span>{{vm.location.locationId}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.location.streetAddress">Street Address</span></dt>
+        <dd>
+            <span>{{vm.location.streetAddress}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.location.postalCode">Postal Code</span></dt>
+        <dd>
+            <span>{{vm.location.postalCode}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.location.city">City</span></dt>
+        <dd>
+            <span>{{vm.location.city}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.location.stateProvince">State Province</span></dt>
+        <dd>
+            <span>{{vm.location.stateProvince}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.location.regionName">Region Name</span></dt>
+        <dd>
+            <span>{{vm.location.regionName}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.location.countryName">Country Name</span></dt>
+        <dd>
+            <span>{{vm.location.countryName}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.location.customer">Customer</span></dt>
+        <dd>
+            <a ui-sref="customer-detail({id:vm.location.customer.id})">{{vm.location.customer.id}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

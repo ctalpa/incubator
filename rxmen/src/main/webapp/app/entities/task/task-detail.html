@@ -1,0 +1,53 @@
+
+<div>
+    <h2><span translate="rxmenApp.task.detail.title">Task</span> {{vm.task.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="rxmenApp.task.taskId">Task Id</span></dt>
+        <dd>
+            <span>{{vm.task.taskId}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.task.title">Title</span></dt>
+        <dd>
+            <span>{{vm.task.title}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.task.description">Description</span></dt>
+        <dd>
+            <span>{{vm.task.description}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.task.taskDate">Task Date</span></dt>
+        <dd>
+            <span>{{vm.task.taskDate | date:'medium'}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.task.taskStatus">Task Status</span></dt>
+        <dd>
+            <span translate="{{'rxmenApp.TaskStatus.' + vm.task.taskStatus}}">{{vm.task.taskStatus}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.task.taskPriority">Task Priority</span></dt>
+        <dd>
+            <span translate="{{'rxmenApp.TaskPriority.' + vm.task.taskPriority}}">{{vm.task.taskPriority}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.task.taskType">Task Type</span></dt>
+        <dd>
+            <span translate="{{'rxmenApp.TaskType.' + vm.task.taskType}}">{{vm.task.taskType}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.task.job">Job</span></dt>
+        <dd>
+            <a ui-sref="job-detail({id:vm.task.jobId})">{{vm.task.jobId}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,33 @@
+
+<div>
+    <h2><span translate="rxmenApp.customer.detail.title">Customer</span> {{vm.customer.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="rxmenApp.customer.custumerId">Custumer Id</span></dt>
+        <dd>
+            <span>{{vm.customer.custumerId}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.customer.name">Name</span></dt>
+        <dd>
+            <span>{{vm.customer.name}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.customer.description">Description</span></dt>
+        <dd>
+            <span>{{vm.customer.description}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="rxmenApp.customer.jobHistory">Job History</span></dt>
+        <dd>
+            <a ui-sref="job-history-detail({id:vm.customer.jobHistoryId})">{{vm.customer.jobHistoryId}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

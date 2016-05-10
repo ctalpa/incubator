@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Employee.
+    -->
+    <changeSet id="20160510163706-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="rest_work_days_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_restworkdays_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rest_work_days"/>
+
+        <addForeignKeyConstraint baseColumnNames="job_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_job_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="job"/>
+
+        <addForeignKeyConstraint baseColumnNames="job_history_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_jobhistory_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="job_history"/>
+
+    </changeSet>
+</databaseChangeLog>

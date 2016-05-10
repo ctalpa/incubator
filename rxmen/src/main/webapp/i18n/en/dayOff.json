@@ -1,0 +1,27 @@
+{
+    "rxmenApp": {
+        "dayOff" : {
+            "home": {
+                "title": "Day Offs",
+                "createLabel": "Create a new Day Off",
+                "createOrEditLabel": "Create or edit a Day Off",
+                "search": "Search for Day Off"
+            },
+            "created": "A new Day Off is created with identifier {{ param }}",
+            "updated": "A Day Off is updated with identifier {{ param }}",
+            "deleted": "A Day Off is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Day Off {{ id }}?"
+            },
+            "detail": {
+                "title": "Day Off"
+            },
+            "dayId": "Day Id",
+            "dayOffType": "Day Off Type",
+            "description": "Description",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "restWorkDays": "Rest Work Days"
+        }
+    }
+}

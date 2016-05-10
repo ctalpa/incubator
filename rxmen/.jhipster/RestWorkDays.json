@@ -1,0 +1,35 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "restEmployee",
+      "otherEntityName": "employee",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "restWorkDays"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "workDayOff",
+      "otherEntityName": "dayOff",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "restWorkDays"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "restWorkDaysStatus",
+      "fieldType": "RestWorkDaysStatus",
+      "fieldValues": "PLANNED,WAITING,APPROVED,REJECTED"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160510163707",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no"
+}
