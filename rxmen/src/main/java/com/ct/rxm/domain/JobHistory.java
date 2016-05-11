@@ -33,10 +33,8 @@ public class JobHistory implements Serializable {
     @Column(name = "end_date")
     private ZonedDateTime endDate;
 
-    @OneToMany(mappedBy = "jobHistory")
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Employee> employees = new HashSet<>();
+    @ManyToOne
+    private Employee employee;
 
     @OneToMany(mappedBy = "jobHistory")
     @JsonIgnore
@@ -67,12 +65,12 @@ public class JobHistory implements Serializable {
         this.endDate = endDate;
     }
 
-    public Set<Employee> getEmployees() {
-        return employees;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setEmployees(Set<Employee> employees) {
-        this.employees = employees;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     public Set<Customer> getCustomers() {

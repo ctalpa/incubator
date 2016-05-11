@@ -16,7 +16,7 @@
     <!--
         Added the entity DayOff.
     -->
-    <changeSet id="20160510163708-1" author="jhipster">
+    <changeSet id="20160511123354-1" author="jhipster">
         <createTable tableName="day_off">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
@@ -41,7 +41,6 @@
                 <constraints nullable="true" />
             </column>
             
-            <column name="rest_work_days_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="day_off" columnName="start_date" columnDataType="datetime"/>

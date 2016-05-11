@@ -22,9 +22,9 @@
             "email": "Email",
             "phoneNumber": "Phone Number",
             "hireDate": "Hire Date",
-            "restWorkDays": "Rest Work Days",
-            "job": "Job",
-            "jobHistory": "Job History"
+            "employeesToJob": "Employees To Job",
+            "employeesToJobHistory": "Employees To Job History",
+            "restEmployee": "Rest Employee"
         }
     }
 }

@@ -54,24 +54,6 @@
                 </div>
         </div>
 
-        <div class="form-group">
-            <label translate="rxmenApp.employee.restWorkDays" for="field_restWorkDays">Rest Work Days</label>
-            <select class="form-control" id="field_restWorkDays" name="restWorkDays" ng-model="vm.employee.restWorkDaysId" ng-options="restWorkDays.id as restWorkDays.id for restWorkDays in vm.restworkdays">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label translate="rxmenApp.employee.job" for="field_job">Job</label>
-            <select class="form-control" id="field_job" name="job" ng-model="vm.employee.jobId" ng-options="job.id as job.id for job in vm.jobs">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label translate="rxmenApp.employee.jobHistory" for="field_jobHistory">Job History</label>
-            <select class="form-control" id="field_jobHistory" name="jobHistory" ng-model="vm.employee.jobHistoryId" ng-options="jobHistory.id as jobHistory.id for jobHistory in vm.jobhistories">
-                <option value=""></option>
-            </select>
-        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">

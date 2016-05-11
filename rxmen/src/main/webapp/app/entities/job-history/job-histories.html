@@ -38,6 +38,7 @@
                     <th><span translate="global.field.id">ID</span></th>
                     <th><span translate="rxmenApp.jobHistory.startDate">Start Date</span></th>
                     <th><span translate="rxmenApp.jobHistory.endDate">End Date</span></th>
+                    <th><span translate="rxmenApp.jobHistory.employee">Employee</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -46,6 +47,9 @@
                     <td><a ui-sref="job-history-detail({id:jobHistory.id})">{{jobHistory.id}}</a></td>
                     <td>{{jobHistory.startDate | date:'medium'}}</td>
                     <td>{{jobHistory.endDate | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="employee-detail({id:jobHistory.employee.id})">{{jobHistory.employee.id}}</a>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

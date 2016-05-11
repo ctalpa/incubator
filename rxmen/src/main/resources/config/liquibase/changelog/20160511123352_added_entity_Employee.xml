@@ -16,7 +16,7 @@
     <!--
         Added the entity Employee.
     -->
-    <changeSet id="20160510163706-1" author="jhipster">
+    <changeSet id="20160511123352-1" author="jhipster">
         <createTable tableName="employee">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
@@ -45,9 +45,6 @@
                 <constraints nullable="true" />
             </column>
             
-            <column name="rest_work_days_id" type="bigint"/>
-            <column name="job_id" type="bigint"/>
-            <column name="job_history_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="employee" columnName="hire_date" columnDataType="datetime"/>

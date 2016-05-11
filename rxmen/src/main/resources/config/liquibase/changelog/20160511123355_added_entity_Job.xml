@@ -14,42 +14,19 @@
     <property name="floatType" value="float" dbms="mysql, oracle"/>
 
     <!--
-        Added the entity Location.
+        Added the entity Job.
     -->
-    <changeSet id="20160510163705-1" author="jhipster">
-        <createTable tableName="location">
+    <changeSet id="20160511123355-1" author="jhipster">
+        <createTable tableName="job">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="location_id" type="bigint">
+            <column name="description" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             
-            <column name="street_address" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            
-            <column name="postal_code" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            
-            <column name="city" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            
-            <column name="state_province" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            
-            <column name="region_name" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            
-            <column name="country_name" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            
-            <column name="customer_id" type="bigint"/>
+            <column name="employee_id" type="bigint"/>
+            <column name="task_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         

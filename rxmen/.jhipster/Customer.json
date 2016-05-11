@@ -2,7 +2,7 @@
   "relationships": [
     {
       "relationshipId": 1,
-      "relationshipName": "customer",
+      "relationshipName": "locations",
       "otherEntityName": "location",
       "relationshipType": "one-to-many",
       "otherEntityRelationshipName": "customer"
@@ -32,7 +32,7 @@
       "fieldType": "String"
     }
   ],
-  "changelogDate": "20160510163704",
+  "changelogDate": "20160511123350",
   "dto": "mapstruct",
   "pagination": "no",
   "service": "serviceClass"

@@ -53,7 +53,7 @@ jhipster:
     security:
         rememberMe:
             # security key (this key should be unique for your application, and kept secret)
-            key: 743b2d226522bb865d36a3a78f6e1fe035cf44f8
+            key: 63d755895f71559dbbea15d5777703fd943c0ba6
     swagger:
         title: rxmen API
         description: rxmen API documentation

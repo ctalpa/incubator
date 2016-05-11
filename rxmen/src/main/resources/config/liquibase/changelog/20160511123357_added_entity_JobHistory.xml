@@ -14,45 +14,26 @@
     <property name="floatType" value="float" dbms="mysql, oracle"/>
 
     <!--
-        Added the entity Task.
+        Added the entity JobHistory.
     -->
-    <changeSet id="20160510163710-1" author="jhipster">
-        <createTable tableName="task">
+    <changeSet id="20160511123357-1" author="jhipster">
+        <createTable tableName="job_history">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="task_id" type="bigint">
+            <column name="start_date" type="timestamp">
                 <constraints nullable="true" />
             </column>
             
-            <column name="title" type="varchar(255)">
+            <column name="end_date" type="timestamp">
                 <constraints nullable="true" />
             </column>
             
-            <column name="description" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            
-            <column name="task_date" type="timestamp">
-                <constraints nullable="true" />
-            </column>
-            
-            <column name="task_status" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            
-            <column name="task_priority" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            
-            <column name="task_type" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            
-            <column name="job_id" type="bigint"/>
+            <column name="employee_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        <dropDefaultValue tableName="task" columnName="task_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="job_history" columnName="start_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="job_history" columnName="end_date" columnDataType="datetime"/>
         
     </changeSet>
 </databaseChangeLog>

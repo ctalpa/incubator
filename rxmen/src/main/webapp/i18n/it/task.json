@@ -23,7 +23,7 @@
             "taskStatus": "Task Status",
             "taskPriority": "Task Priority",
             "taskType": "Task Type",
-            "job": "Job"
+            "tasks": "Tasks"
         }
     }
 }

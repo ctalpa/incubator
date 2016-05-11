@@ -19,7 +19,7 @@
             "custumerId": "Custumer Id",
             "name": "Name",
             "description": "Description",
-            "customer": "Customer",
+            "locations": "Locations",
             "jobHistory": "Job History"
         }
     }

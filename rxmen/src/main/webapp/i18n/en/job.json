@@ -17,8 +17,8 @@
                 "title": "Job"
             },
             "description": "Description",
-            "tasks": "Tasks",
-            "employees": "Employees"
+            "employee": "Employee",
+            "task": "Task"
         }
     }
 }

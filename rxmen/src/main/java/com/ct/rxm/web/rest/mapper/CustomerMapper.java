@@ -17,7 +17,7 @@ public interface CustomerMapper {
 
     List<CustomerDTO> customersToCustomerDTOs(List<Customer> customers);
 
-    @Mapping(target = "customers", ignore = true)
+    @Mapping(target = "locations", ignore = true)
     @Mapping(source = "jobHistoryId", target = "jobHistory")
     Customer customerDTOToCustomer(CustomerDTO customerDTO);
 

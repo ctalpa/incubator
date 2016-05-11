@@ -41,7 +41,6 @@
                     <th><span translate="rxmenApp.dayOff.description">Description</span></th>
                     <th><span translate="rxmenApp.dayOff.startDate">Start Date</span></th>
                     <th><span translate="rxmenApp.dayOff.endDate">End Date</span></th>
-                    <th><span translate="rxmenApp.dayOff.restWorkDays">Rest Work Days</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -53,9 +52,6 @@
                     <td>{{dayOff.description}}</td>
                     <td>{{dayOff.startDate | date:'medium'}}</td>
                     <td>{{dayOff.endDate | date:'medium'}}</td>
-                    <td>
-                        <a ui-sref="rest-work-days-detail({id:dayOff.restWorkDays.id})">{{dayOff.restWorkDays.id}}</a>
-                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

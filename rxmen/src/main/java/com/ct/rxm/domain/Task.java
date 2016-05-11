@@ -1,5 +1,6 @@
 package com.ct.rxm.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
@@ -7,6 +8,8 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 import com.ct.rxm.domain.enumeration.TaskStatus;
@@ -54,8 +57,10 @@ public class Task implements Serializable {
     @Column(name = "task_type")
     private TaskType taskType;
 
-    @ManyToOne
-    private Job job;
+    @OneToMany(mappedBy = "task")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Job> tasks = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -121,12 +126,12 @@ public class Task implements Serializable {
         this.taskType = taskType;
     }
 
-    public Job getJob() {
-        return job;
+    public Set<Job> getTasks() {
+        return tasks;
     }
 
-    public void setJob(Job job) {
-        this.job = job;
+    public void setTasks(Set<Job> jobs) {
+        this.tasks = jobs;
     }
 
     @Override

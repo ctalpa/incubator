@@ -2,10 +2,10 @@
   "relationships": [
     {
       "relationshipId": 1,
-      "relationshipName": "job",
+      "relationshipName": "tasks",
       "otherEntityName": "job",
-      "relationshipType": "many-to-one",
-      "otherEntityField": "id"
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "task"
     }
   ],
   "fields": [
@@ -48,7 +48,7 @@
       "fieldValues": "PLANNED,UNEXPECTED,REPETITIVE"
     }
   ],
-  "changelogDate": "20160510163710",
+  "changelogDate": "20160511123356",
   "dto": "mapstruct",
   "pagination": "no",
   "service": "serviceClass"

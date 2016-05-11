@@ -83,21 +83,21 @@ enum RestWorkDaysStatus {
 
 
 relationship OneToMany {
-	Customer{customer} to Location
+	Customer{locations} to Location
 }
 
 
 relationship OneToMany {
-	Job{tasks} to Task
+	Task{tasks} to Job
 }
 
 relationship OneToMany {
-	Job{employees} to Employee
+	Employee{employeesToJob} to Job
 }
 
 
 relationship OneToMany {
-	JobHistory{employees} to Employee
+	Employee{employeesToJobHistory} to JobHistory
 }
 
 relationship OneToMany {
@@ -106,13 +106,12 @@ relationship OneToMany {
 
 
 relationship OneToMany {
-	RestWorkDays{restEmployee} to Employee
+	Employee{restEmployee} to RestWorkDays 
 }
 
 relationship OneToMany {
-	RestWorkDays{workDayOff} to DayOff
+	DayOff{workDayOff} to RestWorkDays
 }
-
 
 dto Employee, Task, Customer with mapstruct
 

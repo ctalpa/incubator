@@ -2,10 +2,10 @@
   "relationships": [
     {
       "relationshipId": 1,
-      "relationshipName": "restWorkDays",
+      "relationshipName": "workDayOff",
       "otherEntityName": "restWorkDays",
-      "relationshipType": "many-to-one",
-      "otherEntityField": "id"
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "dayOff"
     }
   ],
   "fields": [
@@ -36,7 +36,7 @@
       "fieldType": "ZonedDateTime"
     }
   ],
-  "changelogDate": "20160510163708",
+  "changelogDate": "20160511123354",
   "dto": "no",
   "pagination": "no",
   "service": "no"

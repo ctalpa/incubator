@@ -1,14 +1,11 @@
 package com.ct.rxm.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -29,15 +26,11 @@ public class Job implements Serializable {
     @Column(name = "description")
     private String description;
 
-    @OneToMany(mappedBy = "job")
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Task> tasks = new HashSet<>();
+    @ManyToOne
+    private Employee employee;
 
-    @OneToMany(mappedBy = "job")
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Employee> employees = new HashSet<>();
+    @ManyToOne
+    private Task task;
 
     public Long getId() {
         return id;
@@ -55,20 +48,20 @@ public class Job implements Serializable {
         this.description = description;
     }
 
-    public Set<Task> getTasks() {
-        return tasks;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setTasks(Set<Task> tasks) {
-        this.tasks = tasks;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
-    public Set<Employee> getEmployees() {
-        return employees;
+    public Task getTask() {
+        return task;
     }
 
-    public void setEmployees(Set<Employee> employees) {
-        this.employees = employees;
+    public void setTask(Task task) {
+        this.task = task;
     }
 
     @Override

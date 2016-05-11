@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity RestWorkDays.
+    -->
+    <changeSet id="20160511123353-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="rest_work_days"
+                                 constraintName="fk_restworkdays_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="day_off_id"
+                                 baseTableName="rest_work_days"
+                                 constraintName="fk_restworkdays_dayoff_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="day_off"/>
+
+    </changeSet>
+</databaseChangeLog>

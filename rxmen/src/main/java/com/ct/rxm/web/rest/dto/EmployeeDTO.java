@@ -32,9 +32,6 @@ public class EmployeeDTO implements Serializable {
     private ZonedDateTime hireDate;
 
 
-    private Long restWorkDaysId;
-    private Long jobId;
-    private Long jobHistoryId;
     public Long getId() {
         return id;
     }
@@ -85,27 +82,6 @@ public class EmployeeDTO implements Serializable {
         this.hireDate = hireDate;
     }
 
-    public Long getRestWorkDaysId() {
-        return restWorkDaysId;
-    }
-
-    public void setRestWorkDaysId(Long restWorkDaysId) {
-        this.restWorkDaysId = restWorkDaysId;
-    }
-    public Long getJobId() {
-        return jobId;
-    }
-
-    public void setJobId(Long jobId) {
-        this.jobId = jobId;
-    }
-    public Long getJobHistoryId() {
-        return jobHistoryId;
-    }
-
-    public void setJobHistoryId(Long jobHistoryId) {
-        this.jobHistoryId = jobHistoryId;
-    }
     @Override
     public boolean equals(Object o) {
         if (this == o) {

@@ -2,24 +2,24 @@
   "relationships": [
     {
       "relationshipId": 1,
-      "relationshipName": "restWorkDays",
-      "otherEntityName": "restWorkDays",
-      "relationshipType": "many-to-one",
-      "otherEntityField": "id"
+      "relationshipName": "employeesToJob",
+      "otherEntityName": "job",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "employee"
     },
     {
       "relationshipId": 2,
-      "relationshipName": "job",
-      "otherEntityName": "job",
-      "relationshipType": "many-to-one",
-      "otherEntityField": "id"
+      "relationshipName": "employeesToJobHistory",
+      "otherEntityName": "jobHistory",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "employee"
     },
     {
       "relationshipId": 3,
-      "relationshipName": "jobHistory",
-      "otherEntityName": "jobHistory",
-      "relationshipType": "many-to-one",
-      "otherEntityField": "id"
+      "relationshipName": "restEmployee",
+      "otherEntityName": "restWorkDays",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "employee"
     }
   ],
   "fields": [
@@ -54,7 +54,7 @@
       "fieldType": "ZonedDateTime"
     }
   ],
-  "changelogDate": "20160510163706",
+  "changelogDate": "20160511123352",
   "dto": "mapstruct",
   "pagination": "no",
   "service": "serviceClass",

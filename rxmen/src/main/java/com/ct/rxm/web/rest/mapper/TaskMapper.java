@@ -12,22 +12,12 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = {})
 public interface TaskMapper {
 
-    @Mapping(source = "job.id", target = "jobId")
     TaskDTO taskToTaskDTO(Task task);
 
     List<TaskDTO> tasksToTaskDTOs(List<Task> tasks);
 
-    @Mapping(source = "jobId", target = "job")
+    @Mapping(target = "tasks", ignore = true)
     Task taskDTOToTask(TaskDTO taskDTO);
 
     List<Task> taskDTOsToTasks(List<TaskDTO> taskDTOs);
-
-    default Job jobFromId(Long id) {
-        if (id == null) {
-            return null;
-        }
-        Job job = new Job();
-        job.setId(id);
-        return job;
-    }
 }

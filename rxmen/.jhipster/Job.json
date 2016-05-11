@@ -2,17 +2,17 @@
   "relationships": [
     {
       "relationshipId": 1,
-      "relationshipName": "tasks",
-      "otherEntityName": "task",
-      "relationshipType": "one-to-many",
-      "otherEntityRelationshipName": "job"
+      "relationshipName": "employee",
+      "otherEntityName": "employee",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
     },
     {
       "relationshipId": 2,
-      "relationshipName": "employees",
-      "otherEntityName": "employee",
-      "relationshipType": "one-to-many",
-      "otherEntityRelationshipName": "job"
+      "relationshipName": "task",
+      "otherEntityName": "task",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
     }
   ],
   "fields": [
@@ -22,7 +22,7 @@
       "fieldType": "String"
     }
   ],
-  "changelogDate": "20160510163709",
+  "changelogDate": "20160511123355",
   "dto": "no",
   "pagination": "no",
   "service": "serviceClass"

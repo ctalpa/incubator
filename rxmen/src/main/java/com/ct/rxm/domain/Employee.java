@@ -1,5 +1,6 @@
 package com.ct.rxm.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -8,6 +9,8 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -47,14 +50,20 @@ public class Employee implements Serializable {
     @Column(name = "hire_date")
     private ZonedDateTime hireDate;
 
-    @ManyToOne
-    private RestWorkDays restWorkDays;
+    @OneToMany(mappedBy = "employee")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Job> employeesToJobs = new HashSet<>();
 
-    @ManyToOne
-    private Job job;
+    @OneToMany(mappedBy = "employee")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<JobHistory> employeesToJobHistories = new HashSet<>();
 
-    @ManyToOne
-    private JobHistory jobHistory;
+    @OneToMany(mappedBy = "employee")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<RestWorkDays> restEmployees = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -112,28 +121,28 @@ public class Employee implements Serializable {
         this.hireDate = hireDate;
     }
 
-    public RestWorkDays getRestWorkDays() {
-        return restWorkDays;
+    public Set<Job> getEmployeesToJobs() {
+        return employeesToJobs;
     }
 
-    public void setRestWorkDays(RestWorkDays restWorkDays) {
-        this.restWorkDays = restWorkDays;
+    public void setEmployeesToJobs(Set<Job> jobs) {
+        this.employeesToJobs = jobs;
     }
 
-    public Job getJob() {
-        return job;
+    public Set<JobHistory> getEmployeesToJobHistories() {
+        return employeesToJobHistories;
     }
 
-    public void setJob(Job job) {
-        this.job = job;
+    public void setEmployeesToJobHistories(Set<JobHistory> jobHistories) {
+        this.employeesToJobHistories = jobHistories;
     }
 
-    public JobHistory getJobHistory() {
-        return jobHistory;
+    public Set<RestWorkDays> getRestEmployees() {
+        return restEmployees;
     }
 
-    public void setJobHistory(JobHistory jobHistory) {
-        this.jobHistory = jobHistory;
+    public void setRestEmployees(Set<RestWorkDays> restWorkDays) {
+        this.restEmployees = restWorkDays;
     }
 
     @Override

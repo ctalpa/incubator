@@ -38,7 +38,6 @@ public class TaskDTO implements Serializable {
     private TaskType taskType;
 
 
-    private Long jobId;
     public Long getId() {
         return id;
     }
@@ -96,13 +95,6 @@ public class TaskDTO implements Serializable {
         this.taskType = taskType;
     }
 
-    public Long getJobId() {
-        return jobId;
-    }
-
-    public void setJobId(Long jobId) {
-        this.jobId = jobId;
-    }
     @Override
     public boolean equals(Object o) {
         if (this == o) {

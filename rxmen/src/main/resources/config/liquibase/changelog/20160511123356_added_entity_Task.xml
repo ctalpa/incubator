@@ -14,14 +14,18 @@
     <property name="floatType" value="float" dbms="mysql, oracle"/>
 
     <!--
-        Added the entity RestWorkDays.
+        Added the entity Task.
     -->
-    <changeSet id="20160510163707-1" author="jhipster">
-        <createTable tableName="rest_work_days">
+    <changeSet id="20160511123356-1" author="jhipster">
+        <createTable tableName="task">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="rest_work_days_status" type="varchar(255)">
+            <column name="task_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="title" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             
@@ -29,8 +33,25 @@
                 <constraints nullable="true" />
             </column>
             
+            <column name="task_date" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="task_status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="task_priority" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="task_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
+        <dropDefaultValue tableName="task" columnName="task_date" columnDataType="datetime"/>
         
     </changeSet>
 </databaseChangeLog>

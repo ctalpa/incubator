@@ -2,10 +2,10 @@
   "relationships": [
     {
       "relationshipId": 1,
-      "relationshipName": "employees",
+      "relationshipName": "employee",
       "otherEntityName": "employee",
-      "relationshipType": "one-to-many",
-      "otherEntityRelationshipName": "jobHistory"
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
     },
     {
       "relationshipId": 2,
@@ -27,7 +27,7 @@
       "fieldType": "ZonedDateTime"
     }
   ],
-  "changelogDate": "20160510163711",
+  "changelogDate": "20160511123357",
   "dto": "no",
   "pagination": "no",
   "service": "no"

@@ -1,5 +1,6 @@
 package com.ct.rxm.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
@@ -7,6 +8,8 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 import com.ct.rxm.domain.enumeration.DayOffType;
@@ -42,8 +45,10 @@ public class DayOff implements Serializable {
     @Column(name = "end_date")
     private ZonedDateTime endDate;
 
-    @ManyToOne
-    private RestWorkDays restWorkDays;
+    @OneToMany(mappedBy = "dayOff")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<RestWorkDays> workDayOffs = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -93,12 +98,12 @@ public class DayOff implements Serializable {
         this.endDate = endDate;
     }
 
-    public RestWorkDays getRestWorkDays() {
-        return restWorkDays;
+    public Set<RestWorkDays> getWorkDayOffs() {
+        return workDayOffs;
     }
 
-    public void setRestWorkDays(RestWorkDays restWorkDays) {
-        this.restWorkDays = restWorkDays;
+    public void setWorkDayOffs(Set<RestWorkDays> restWorkDays) {
+        this.workDayOffs = restWorkDays;
     }
 
     @Override
