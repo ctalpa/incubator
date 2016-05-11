@@ -1,6 +1,7 @@
 package com.ct.rxm.web.rest.dto;
 
 import java.time.ZonedDateTime;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,6 +21,7 @@ public class TaskDTO implements Serializable {
     private Long taskId;
 
 
+    @NotNull
     private String title;
 
 

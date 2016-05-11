@@ -153,6 +153,25 @@ public class TaskResourceIntTest {
 
     @Test
     @Transactional
+    public void checkTitleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = taskRepository.findAll().size();
+        // set the field null
+        task.setTitle(null);
+
+        // Create the Task, which fails.
+        TaskDTO taskDTO = taskMapper.taskToTaskDTO(task);
+
+        restTaskMockMvc.perform(post("/api/tasks")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(taskDTO)))
+                .andExpect(status().isBadRequest());
+
+        List<Task> tasks = taskRepository.findAll();
+        assertThat(tasks).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllTasks() throws Exception {
         // Initialize the database
         taskRepository.saveAndFlush(task);

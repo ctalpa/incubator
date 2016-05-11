@@ -2,15 +2,15 @@
   "relationships": [
     {
       "relationshipId": 1,
-      "relationshipName": "locations",
-      "otherEntityName": "location",
+      "relationshipName": "customerToJobHistory",
+      "otherEntityName": "jobHistory",
       "relationshipType": "one-to-many",
       "otherEntityRelationshipName": "customer"
     },
     {
       "relationshipId": 2,
-      "relationshipName": "jobHistory",
-      "otherEntityName": "jobHistory",
+      "relationshipName": "location",
+      "otherEntityName": "location",
       "relationshipType": "many-to-one",
       "otherEntityField": "id"
     }

@@ -3,12 +3,15 @@ package com.ct.rxm.service;
 import com.ct.rxm.domain.Job;
 import com.ct.rxm.repository.JobRepository;
 import com.ct.rxm.repository.search.JobSearchRepository;
+import com.ct.rxm.web.rest.dto.JobDTO;
+import com.ct.rxm.web.rest.mapper.JobMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -28,18 +31,23 @@ public class JobService {
     private JobRepository jobRepository;
     
     @Inject
+    private JobMapper jobMapper;
+    
+    @Inject
     private JobSearchRepository jobSearchRepository;
     
     /**
      * Save a job.
      * 
-     * @param job the entity to save
+     * @param jobDTO the entity to save
      * @return the persisted entity
      */
-    public Job save(Job job) {
-        log.debug("Request to save Job : {}", job);
-        Job result = jobRepository.save(job);
-        jobSearchRepository.save(result);
+    public JobDTO save(JobDTO jobDTO) {
+        log.debug("Request to save Job : {}", jobDTO);
+        Job job = jobMapper.jobDTOToJob(jobDTO);
+        job = jobRepository.save(job);
+        JobDTO result = jobMapper.jobToJobDTO(job);
+        jobSearchRepository.save(job);
         return result;
     }
 
@@ -49,9 +57,11 @@ public class JobService {
      *  @return the list of entities
      */
     @Transactional(readOnly = true) 
-    public List<Job> findAll() {
+    public List<JobDTO> findAll() {
         log.debug("Request to get all Jobs");
-        List<Job> result = jobRepository.findAll();
+        List<JobDTO> result = jobRepository.findAll().stream()
+            .map(jobMapper::jobToJobDTO)
+            .collect(Collectors.toCollection(LinkedList::new));
         return result;
     }
 
@@ -62,10 +72,11 @@ public class JobService {
      *  @return the entity
      */
     @Transactional(readOnly = true) 
-    public Job findOne(Long id) {
+    public JobDTO findOne(Long id) {
         log.debug("Request to get Job : {}", id);
         Job job = jobRepository.findOne(id);
-        return job;
+        JobDTO jobDTO = jobMapper.jobToJobDTO(job);
+        return jobDTO;
     }
 
     /**
@@ -86,10 +97,11 @@ public class JobService {
      *  @return the list of entities
      */
     @Transactional(readOnly = true)
-    public List<Job> search(String query) {
+    public List<JobDTO> search(String query) {
         log.debug("Request to search Jobs for query {}", query);
         return StreamSupport
             .stream(jobSearchRepository.search(queryStringQuery(query)).spliterator(), false)
+            .map(jobMapper::jobToJobDTO)
             .collect(Collectors.toList());
     }
 }

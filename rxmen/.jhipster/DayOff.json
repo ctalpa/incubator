@@ -2,10 +2,10 @@
   "relationships": [
     {
       "relationshipId": 1,
-      "relationshipName": "workDayOff",
+      "relationshipName": "restWorkDays",
       "otherEntityName": "restWorkDays",
-      "relationshipType": "one-to-many",
-      "otherEntityRelationshipName": "dayOff"
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
     }
   ],
   "fields": [

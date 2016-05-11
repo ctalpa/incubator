@@ -19,5 +19,7 @@
     <include file="classpath:config/liquibase/changelog/20160511123353_added_entity_constraints_RestWorkDays.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160511123355_added_entity_constraints_Job.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160511123357_added_entity_constraints_JobHistory.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160511123352_added_entity_constraints_Employee.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160511123354_added_entity_constraints_DayOff.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

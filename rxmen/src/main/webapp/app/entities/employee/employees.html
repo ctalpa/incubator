@@ -42,6 +42,7 @@
                     <th><span translate="rxmenApp.employee.email">Email</span></th>
                     <th><span translate="rxmenApp.employee.phoneNumber">Phone Number</span></th>
                     <th><span translate="rxmenApp.employee.hireDate">Hire Date</span></th>
+                    <th><span translate="rxmenApp.employee.restWorkDays">Rest Work Days</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -54,6 +55,9 @@
                     <td>{{employee.email}}</td>
                     <td>{{employee.phoneNumber}}</td>
                     <td>{{employee.hireDate | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="rest-work-days-detail({id:employee.restWorkDaysId})">{{employee.restWorkDaysId}}</a>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

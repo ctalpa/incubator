@@ -1,11 +1,14 @@
 package com.ct.rxm.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 import com.ct.rxm.domain.enumeration.RestWorkDaysStatus;
@@ -32,11 +35,15 @@ public class RestWorkDays implements Serializable {
     @Column(name = "description")
     private String description;
 
-    @ManyToOne
-    private Employee employee;
+    @OneToMany(mappedBy = "restWorkDays")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Employee> restEmployees = new HashSet<>();
 
-    @ManyToOne
-    private DayOff dayOff;
+    @OneToMany(mappedBy = "restWorkDays")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<DayOff> workDayOffs = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -62,20 +69,20 @@ public class RestWorkDays implements Serializable {
         this.description = description;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public Set<Employee> getRestEmployees() {
+        return restEmployees;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setRestEmployees(Set<Employee> employees) {
+        this.restEmployees = employees;
     }
 
-    public DayOff getDayOff() {
-        return dayOff;
+    public Set<DayOff> getWorkDayOffs() {
+        return workDayOffs;
     }
 
-    public void setDayOff(DayOff dayOff) {
-        this.dayOff = dayOff;
+    public void setWorkDayOffs(Set<DayOff> dayOffs) {
+        this.workDayOffs = dayOffs;
     }
 
     @Override

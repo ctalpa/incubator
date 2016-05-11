@@ -13,9 +13,14 @@
             <span>{{vm.jobHistory.endDate | date:'medium'}}</span>
         </dd>
         <hr>
+        <dt><span translate="rxmenApp.jobHistory.customer">Customer</span></dt>
+        <dd>
+            <a ui-sref="customer-detail({id:vm.jobHistory.customerId})">{{vm.jobHistory.customerId}}</a>
+        </dd>
+        <hr>
         <dt><span translate="rxmenApp.jobHistory.employee">Employee</span></dt>
         <dd>
-            <a ui-sref="employee-detail({id:vm.jobHistory.employee.id})">{{vm.jobHistory.employee.id}}</a>
+            <a ui-sref="employee-detail({id:vm.jobHistory.employeeId})">{{vm.jobHistory.employeeId}}</a>
         </dd>
         <hr>
     </dl>

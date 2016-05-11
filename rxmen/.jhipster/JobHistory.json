@@ -2,17 +2,17 @@
   "relationships": [
     {
       "relationshipId": 1,
-      "relationshipName": "employee",
-      "otherEntityName": "employee",
+      "relationshipName": "customer",
+      "otherEntityName": "customer",
       "relationshipType": "many-to-one",
       "otherEntityField": "id"
     },
     {
       "relationshipId": 2,
-      "relationshipName": "customer",
-      "otherEntityName": "customer",
-      "relationshipType": "one-to-many",
-      "otherEntityRelationshipName": "jobHistory"
+      "relationshipName": "employee",
+      "otherEntityName": "employee",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
     }
   ],
   "fields": [
@@ -28,7 +28,7 @@
     }
   ],
   "changelogDate": "20160511123357",
-  "dto": "no",
+  "dto": "mapstruct",
   "pagination": "no",
-  "service": "no"
+  "service": "serviceClass"
 }

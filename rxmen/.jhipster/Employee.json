@@ -16,10 +16,10 @@
     },
     {
       "relationshipId": 3,
-      "relationshipName": "restEmployee",
+      "relationshipName": "restWorkDays",
       "otherEntityName": "restWorkDays",
-      "relationshipType": "one-to-many",
-      "otherEntityRelationshipName": "employee"
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
     }
   ],
   "fields": [
@@ -31,12 +31,18 @@
     {
       "fieldId": 2,
       "fieldName": "firstName",
-      "fieldType": "String"
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
     },
     {
       "fieldId": 3,
       "fieldName": "lastName",
-      "fieldType": "String"
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
     },
     {
       "fieldId": 4,

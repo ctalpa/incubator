@@ -21,7 +21,7 @@
             "description": "Description",
             "startDate": "Start Date",
             "endDate": "End Date",
-            "workDayOff": "Work Day Off"
+            "restWorkDays": "Rest Work Days"
         }
     }
 }

@@ -24,7 +24,7 @@
             "hireDate": "Hire Date",
             "employeesToJob": "Employees To Job",
             "employeesToJobHistory": "Employees To Job History",
-            "restEmployee": "Rest Employee"
+            "restWorkDays": "Rest Work Days"
         }
     }
 }

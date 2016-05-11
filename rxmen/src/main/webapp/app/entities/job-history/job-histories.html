@@ -38,6 +38,7 @@
                     <th><span translate="global.field.id">ID</span></th>
                     <th><span translate="rxmenApp.jobHistory.startDate">Start Date</span></th>
                     <th><span translate="rxmenApp.jobHistory.endDate">End Date</span></th>
+                    <th><span translate="rxmenApp.jobHistory.customer">Customer</span></th>
                     <th><span translate="rxmenApp.jobHistory.employee">Employee</span></th>
                     <th></th>
                 </tr>
@@ -48,7 +49,10 @@
                     <td>{{jobHistory.startDate | date:'medium'}}</td>
                     <td>{{jobHistory.endDate | date:'medium'}}</td>
                     <td>
-                        <a ui-sref="employee-detail({id:jobHistory.employee.id})">{{jobHistory.employee.id}}</a>
+                        <a ui-sref="customer-detail({id:jobHistory.customerId})">{{jobHistory.customerId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="employee-detail({id:jobHistory.employeeId})">{{jobHistory.employeeId}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

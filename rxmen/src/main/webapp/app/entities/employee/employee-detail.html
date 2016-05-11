@@ -33,6 +33,11 @@
             <span>{{vm.employee.hireDate | date:'medium'}}</span>
         </dd>
         <hr>
+        <dt><span translate="rxmenApp.employee.restWorkDays">Rest Work Days</span></dt>
+        <dd>
+            <a ui-sref="rest-work-days-detail({id:vm.employee.restWorkDaysId})">{{vm.employee.restWorkDaysId}}</a>
+        </dd>
+        <hr>
     </dl>
 
     <button type="submit"

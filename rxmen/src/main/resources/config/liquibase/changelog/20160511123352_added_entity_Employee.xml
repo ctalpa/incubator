@@ -26,11 +26,11 @@
             </column>
             
             <column name="first_name" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             
             <column name="last_name" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             
             <column name="email" type="varchar(255)">
@@ -45,6 +45,7 @@
                 <constraints nullable="true" />
             </column>
             
+            <column name="rest_work_days_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="employee" columnName="hire_date" columnDataType="datetime"/>

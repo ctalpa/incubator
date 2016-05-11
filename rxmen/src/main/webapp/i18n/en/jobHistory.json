@@ -18,8 +18,8 @@
             },
             "startDate": "Start Date",
             "endDate": "End Date",
-            "employee": "Employee",
-            "customer": "Customer"
+            "customer": "Customer",
+            "employee": "Employee"
         }
     }
 }

@@ -20,8 +20,8 @@ entity Location {
  */
 entity Employee {
 	employeeId Long,
-	firstName String,
-	lastName String,
+	firstName String required,
+	lastName String required,
 	email String,
 	phoneNumber String,
 	hireDate ZonedDateTime,
@@ -47,7 +47,7 @@ entity Job {
 
 entity Task {
 	taskId Long,
-	title String,
+	title String required,
 	description String,
     taskDate ZonedDateTime,
     taskStatus TaskStatus,
@@ -83,7 +83,7 @@ enum RestWorkDaysStatus {
 
 
 relationship OneToMany {
-	Customer{locations} to Location
+	Location{locations} to Customer
 }
 
 
@@ -101,20 +101,18 @@ relationship OneToMany {
 }
 
 relationship OneToMany {
-	JobHistory{customer} to Customer
+	Customer{customerToJobHistory} to JobHistory
 }
 
 
 relationship OneToMany {
-	Employee{restEmployee} to RestWorkDays 
+	RestWorkDays {restEmployee} to Employee  
 }
 
 relationship OneToMany {
-	DayOff{workDayOff} to RestWorkDays
+	RestWorkDays {workDayOff} to DayOff
 }
 
-dto Employee, Task, Customer with mapstruct
+dto Employee, Task, Job, Customer, JobHistory with mapstruct 
 
-service Employee, Task, Job, Customer with serviceClass
-
-	
+service Employee, Task, Job, Customer, JobHistory with serviceClass

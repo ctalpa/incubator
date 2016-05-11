@@ -1,6 +1,7 @@
 package com.ct.rxm.web.rest.dto;
 
 import java.time.ZonedDateTime;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,9 +18,11 @@ public class EmployeeDTO implements Serializable {
     private Long employeeId;
 
 
+    @NotNull
     private String firstName;
 
 
+    @NotNull
     private String lastName;
 
 
@@ -32,6 +35,7 @@ public class EmployeeDTO implements Serializable {
     private ZonedDateTime hireDate;
 
 
+    private Long restWorkDaysId;
     public Long getId() {
         return id;
     }
@@ -82,6 +86,13 @@ public class EmployeeDTO implements Serializable {
         this.hireDate = hireDate;
     }
 
+    public Long getRestWorkDaysId() {
+        return restWorkDaysId;
+    }
+
+    public void setRestWorkDaysId(Long restWorkDaysId) {
+        this.restWorkDaysId = restWorkDaysId;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) {

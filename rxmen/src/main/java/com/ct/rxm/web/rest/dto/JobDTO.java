@@ -7,42 +7,23 @@ import java.util.Objects;
 
 
 /**
- * A DTO for the Customer entity.
+ * A DTO for the Job entity.
  */
-public class CustomerDTO implements Serializable {
+public class JobDTO implements Serializable {
 
     private Long id;
-
-    private Long custumerId;
-
-
-    private String name;
-
 
     private String description;
 
 
-    private Long locationId;
+    private Long employeeId;
+    private Long taskId;
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-    public Long getCustumerId() {
-        return custumerId;
-    }
-
-    public void setCustumerId(Long custumerId) {
-        this.custumerId = custumerId;
-    }
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
     public String getDescription() {
         return description;
@@ -52,12 +33,19 @@ public class CustomerDTO implements Serializable {
         this.description = description;
     }
 
-    public Long getLocationId() {
-        return locationId;
+    public Long getEmployeeId() {
+        return employeeId;
     }
 
-    public void setLocationId(Long locationId) {
-        this.locationId = locationId;
+    public void setEmployeeId(Long employeeId) {
+        this.employeeId = employeeId;
+    }
+    public Long getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(Long taskId) {
+        this.taskId = taskId;
     }
     @Override
     public boolean equals(Object o) {
@@ -68,9 +56,9 @@ public class CustomerDTO implements Serializable {
             return false;
         }
 
-        CustomerDTO customerDTO = (CustomerDTO) o;
+        JobDTO jobDTO = (JobDTO) o;
 
-        if ( ! Objects.equals(id, customerDTO.id)) return false;
+        if ( ! Objects.equals(id, jobDTO.id)) return false;
 
         return true;
     }
@@ -82,10 +70,8 @@ public class CustomerDTO implements Serializable {
 
     @Override
     public String toString() {
-        return "CustomerDTO{" +
+        return "JobDTO{" +
             "id=" + id +
-            ", custumerId='" + custumerId + "'" +
-            ", name='" + name + "'" +
             ", description='" + description + "'" +
             '}';
     }

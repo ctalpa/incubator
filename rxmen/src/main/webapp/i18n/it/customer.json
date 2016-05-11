@@ -19,8 +19,8 @@
             "custumerId": "Custumer Id",
             "name": "Name",
             "description": "Description",
-            "locations": "Locations",
-            "jobHistory": "Job History"
+            "customerToJobHistory": "Customer To Job History",
+            "location": "Location"
         }
     }
 }

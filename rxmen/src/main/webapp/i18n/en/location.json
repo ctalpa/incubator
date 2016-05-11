@@ -23,7 +23,7 @@
             "stateProvince": "State Province",
             "regionName": "Region Name",
             "countryName": "Country Name",
-            "customer": "Customer"
+            "locations": "Locations"
         }
     }
 }

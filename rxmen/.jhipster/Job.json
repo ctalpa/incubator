@@ -23,7 +23,7 @@
     }
   ],
   "changelogDate": "20160511123355",
-  "dto": "no",
+  "dto": "mapstruct",
   "pagination": "no",
   "service": "serviceClass"
 }

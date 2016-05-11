@@ -38,10 +38,10 @@ public class Customer implements Serializable {
     @OneToMany(mappedBy = "customer")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Location> locations = new HashSet<>();
+    private Set<JobHistory> customerToJobHistories = new HashSet<>();
 
     @ManyToOne
-    private JobHistory jobHistory;
+    private Location location;
 
     public Long getId() {
         return id;
@@ -75,20 +75,20 @@ public class Customer implements Serializable {
         this.description = description;
     }
 
-    public Set<Location> getLocations() {
-        return locations;
+    public Set<JobHistory> getCustomerToJobHistories() {
+        return customerToJobHistories;
     }
 
-    public void setLocations(Set<Location> locations) {
-        this.locations = locations;
+    public void setCustomerToJobHistories(Set<JobHistory> jobHistories) {
+        this.customerToJobHistories = jobHistories;
     }
 
-    public JobHistory getJobHistory() {
-        return jobHistory;
+    public Location getLocation() {
+        return location;
     }
 
-    public void setJobHistory(JobHistory jobHistory) {
-        this.jobHistory = jobHistory;
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     @Override

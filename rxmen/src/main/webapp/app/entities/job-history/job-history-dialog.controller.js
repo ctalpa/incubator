@@ -5,13 +5,13 @@
         .module('rxmenApp')
         .controller('JobHistoryDialogController', JobHistoryDialogController);
 
-    JobHistoryDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'JobHistory', 'Employee', 'Customer'];
+    JobHistoryDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'JobHistory', 'Customer', 'Employee'];
 
-    function JobHistoryDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, JobHistory, Employee, Customer) {
+    function JobHistoryDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, JobHistory, Customer, Employee) {
         var vm = this;
         vm.jobHistory = entity;
-        vm.employees = Employee.query();
         vm.customers = Customer.query();
+        vm.employees = Employee.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

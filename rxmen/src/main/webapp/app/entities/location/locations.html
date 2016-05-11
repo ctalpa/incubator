@@ -43,7 +43,6 @@
                     <th><span translate="rxmenApp.location.stateProvince">State Province</span></th>
                     <th><span translate="rxmenApp.location.regionName">Region Name</span></th>
                     <th><span translate="rxmenApp.location.countryName">Country Name</span></th>
-                    <th><span translate="rxmenApp.location.customer">Customer</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -57,9 +56,6 @@
                     <td>{{location.stateProvince}}</td>
                     <td>{{location.regionName}}</td>
                     <td>{{location.countryName}}</td>
-                    <td>
-                        <a ui-sref="customer-detail({id:location.customer.id})">{{location.customer.id}}</a>
-                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

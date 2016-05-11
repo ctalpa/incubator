@@ -41,6 +41,7 @@
                 <constraints nullable="true" />
             </column>
             
+            <column name="rest_work_days_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="day_off" columnName="start_date" columnDataType="datetime"/>

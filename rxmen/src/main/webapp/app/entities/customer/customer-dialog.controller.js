@@ -5,13 +5,13 @@
         .module('rxmenApp')
         .controller('CustomerDialogController', CustomerDialogController);
 
-    CustomerDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Customer', 'Location', 'JobHistory'];
+    CustomerDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Customer', 'JobHistory', 'Location'];
 
-    function CustomerDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Customer, Location, JobHistory) {
+    function CustomerDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Customer, JobHistory, Location) {
         var vm = this;
         vm.customer = entity;
-        vm.locations = Location.query();
         vm.jobhistories = JobHistory.query();
+        vm.locations = Location.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

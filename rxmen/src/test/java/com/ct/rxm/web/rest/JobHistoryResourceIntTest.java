@@ -3,7 +3,10 @@ package com.ct.rxm.web.rest;
 import com.ct.rxm.RxmenApp;
 import com.ct.rxm.domain.JobHistory;
 import com.ct.rxm.repository.JobHistoryRepository;
+import com.ct.rxm.service.JobHistoryService;
 import com.ct.rxm.repository.search.JobHistorySearchRepository;
+import com.ct.rxm.web.rest.dto.JobHistoryDTO;
+import com.ct.rxm.web.rest.mapper.JobHistoryMapper;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -61,6 +64,12 @@ public class JobHistoryResourceIntTest {
     private JobHistoryRepository jobHistoryRepository;
 
     @Inject
+    private JobHistoryMapper jobHistoryMapper;
+
+    @Inject
+    private JobHistoryService jobHistoryService;
+
+    @Inject
     private JobHistorySearchRepository jobHistorySearchRepository;
 
     @Inject
@@ -77,8 +86,8 @@ public class JobHistoryResourceIntTest {
     public void setup() {
         MockitoAnnotations.initMocks(this);
         JobHistoryResource jobHistoryResource = new JobHistoryResource();
-        ReflectionTestUtils.setField(jobHistoryResource, "jobHistorySearchRepository", jobHistorySearchRepository);
-        ReflectionTestUtils.setField(jobHistoryResource, "jobHistoryRepository", jobHistoryRepository);
+        ReflectionTestUtils.setField(jobHistoryResource, "jobHistoryService", jobHistoryService);
+        ReflectionTestUtils.setField(jobHistoryResource, "jobHistoryMapper", jobHistoryMapper);
         this.restJobHistoryMockMvc = MockMvcBuilders.standaloneSetup(jobHistoryResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setMessageConverters(jacksonMessageConverter).build();
@@ -98,10 +107,11 @@ public class JobHistoryResourceIntTest {
         int databaseSizeBeforeCreate = jobHistoryRepository.findAll().size();
 
         // Create the JobHistory
+        JobHistoryDTO jobHistoryDTO = jobHistoryMapper.jobHistoryToJobHistoryDTO(jobHistory);
 
         restJobHistoryMockMvc.perform(post("/api/job-histories")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(jobHistory)))
+                .content(TestUtil.convertObjectToJsonBytes(jobHistoryDTO)))
                 .andExpect(status().isCreated());
 
         // Validate the JobHistory in the database
@@ -167,10 +177,11 @@ public class JobHistoryResourceIntTest {
         updatedJobHistory.setId(jobHistory.getId());
         updatedJobHistory.setStartDate(UPDATED_START_DATE);
         updatedJobHistory.setEndDate(UPDATED_END_DATE);
+        JobHistoryDTO jobHistoryDTO = jobHistoryMapper.jobHistoryToJobHistoryDTO(updatedJobHistory);
 
         restJobHistoryMockMvc.perform(put("/api/job-histories")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(updatedJobHistory)))
+                .content(TestUtil.convertObjectToJsonBytes(jobHistoryDTO)))
                 .andExpect(status().isOk());
 
         // Validate the JobHistory in the database

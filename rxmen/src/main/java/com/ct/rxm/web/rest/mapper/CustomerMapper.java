@@ -12,23 +12,23 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = {})
 public interface CustomerMapper {
 
-    @Mapping(source = "jobHistory.id", target = "jobHistoryId")
+    @Mapping(source = "location.id", target = "locationId")
     CustomerDTO customerToCustomerDTO(Customer customer);
 
     List<CustomerDTO> customersToCustomerDTOs(List<Customer> customers);
 
-    @Mapping(target = "locations", ignore = true)
-    @Mapping(source = "jobHistoryId", target = "jobHistory")
+    @Mapping(target = "customerToJobHistories", ignore = true)
+    @Mapping(source = "locationId", target = "location")
     Customer customerDTOToCustomer(CustomerDTO customerDTO);
 
     List<Customer> customerDTOsToCustomers(List<CustomerDTO> customerDTOs);
 
-    default JobHistory jobHistoryFromId(Long id) {
+    default Location locationFromId(Long id) {
         if (id == null) {
             return null;
         }
-        JobHistory jobHistory = new JobHistory();
-        jobHistory.setId(id);
-        return jobHistory;
+        Location location = new Location();
+        location.setId(id);
+        return location;
     }
 }

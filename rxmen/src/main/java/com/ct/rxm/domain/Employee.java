@@ -7,6 +7,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.HashSet;
@@ -35,10 +36,12 @@ public class Employee implements Serializable {
     @Column(name = "employee_id")
     private Long employeeId;
 
-    @Column(name = "first_name")
+    @NotNull
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(name = "last_name")
+    @NotNull
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
     @Column(name = "email")
@@ -60,10 +63,8 @@ public class Employee implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<JobHistory> employeesToJobHistories = new HashSet<>();
 
-    @OneToMany(mappedBy = "employee")
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<RestWorkDays> restEmployees = new HashSet<>();
+    @ManyToOne
+    private RestWorkDays restWorkDays;
 
     public Long getId() {
         return id;
@@ -137,12 +138,12 @@ public class Employee implements Serializable {
         this.employeesToJobHistories = jobHistories;
     }
 
-    public Set<RestWorkDays> getRestEmployees() {
-        return restEmployees;
+    public RestWorkDays getRestWorkDays() {
+        return restWorkDays;
     }
 
-    public void setRestEmployees(Set<RestWorkDays> restWorkDays) {
-        this.restEmployees = restWorkDays;
+    public void setRestWorkDays(RestWorkDays restWorkDays) {
+        this.restWorkDays = restWorkDays;
     }
 
     @Override

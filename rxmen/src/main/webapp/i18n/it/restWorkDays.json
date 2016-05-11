@@ -18,8 +18,8 @@
             },
             "restWorkDaysStatus": "Rest Work Days Status",
             "description": "Description",
-            "employee": "Employee",
-            "dayOff": "Day Off"
+            "restEmployee": "Rest Employee",
+            "workDayOff": "Work Day Off"
         }
     }
 }

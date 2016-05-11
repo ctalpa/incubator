@@ -5,6 +5,8 @@ import com.ct.rxm.domain.Job;
 import com.ct.rxm.repository.JobRepository;
 import com.ct.rxm.service.JobService;
 import com.ct.rxm.repository.search.JobSearchRepository;
+import com.ct.rxm.web.rest.dto.JobDTO;
+import com.ct.rxm.web.rest.mapper.JobMapper;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -50,6 +52,9 @@ public class JobResourceIntTest {
     private JobRepository jobRepository;
 
     @Inject
+    private JobMapper jobMapper;
+
+    @Inject
     private JobService jobService;
 
     @Inject
@@ -70,6 +75,7 @@ public class JobResourceIntTest {
         MockitoAnnotations.initMocks(this);
         JobResource jobResource = new JobResource();
         ReflectionTestUtils.setField(jobResource, "jobService", jobService);
+        ReflectionTestUtils.setField(jobResource, "jobMapper", jobMapper);
         this.restJobMockMvc = MockMvcBuilders.standaloneSetup(jobResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setMessageConverters(jacksonMessageConverter).build();
@@ -88,10 +94,11 @@ public class JobResourceIntTest {
         int databaseSizeBeforeCreate = jobRepository.findAll().size();
 
         // Create the Job
+        JobDTO jobDTO = jobMapper.jobToJobDTO(job);
 
         restJobMockMvc.perform(post("/api/jobs")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(job)))
+                .content(TestUtil.convertObjectToJsonBytes(jobDTO)))
                 .andExpect(status().isCreated());
 
         // Validate the Job in the database
@@ -145,18 +152,19 @@ public class JobResourceIntTest {
     @Transactional
     public void updateJob() throws Exception {
         // Initialize the database
-        jobService.save(job);
-
+        jobRepository.saveAndFlush(job);
+        jobSearchRepository.save(job);
         int databaseSizeBeforeUpdate = jobRepository.findAll().size();
 
         // Update the job
         Job updatedJob = new Job();
         updatedJob.setId(job.getId());
         updatedJob.setDescription(UPDATED_DESCRIPTION);
+        JobDTO jobDTO = jobMapper.jobToJobDTO(updatedJob);
 
         restJobMockMvc.perform(put("/api/jobs")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(updatedJob)))
+                .content(TestUtil.convertObjectToJsonBytes(jobDTO)))
                 .andExpect(status().isOk());
 
         // Validate the Job in the database
@@ -174,8 +182,8 @@ public class JobResourceIntTest {
     @Transactional
     public void deleteJob() throws Exception {
         // Initialize the database
-        jobService.save(job);
-
+        jobRepository.saveAndFlush(job);
+        jobSearchRepository.save(job);
         int databaseSizeBeforeDelete = jobRepository.findAll().size();
 
         // Get the job
@@ -196,7 +204,8 @@ public class JobResourceIntTest {
     @Transactional
     public void searchJob() throws Exception {
         // Initialize the database
-        jobService.save(job);
+        jobRepository.saveAndFlush(job);
+        jobSearchRepository.save(job);
 
         // Search the job
         restJobMockMvc.perform(get("/api/_search/jobs?query=id:" + job.getId()))

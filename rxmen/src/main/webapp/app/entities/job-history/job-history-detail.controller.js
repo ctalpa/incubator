@@ -5,9 +5,9 @@
         .module('rxmenApp')
         .controller('JobHistoryDetailController', JobHistoryDetailController);
 
-    JobHistoryDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'JobHistory', 'Employee', 'Customer'];
+    JobHistoryDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'JobHistory', 'Customer', 'Employee'];
 
-    function JobHistoryDetailController($scope, $rootScope, $stateParams, entity, JobHistory, Employee, Customer) {
+    function JobHistoryDetailController($scope, $rootScope, $stateParams, entity, JobHistory, Customer, Employee) {
         var vm = this;
         vm.jobHistory = entity;
         

@@ -1,11 +1,14 @@
 package com.ct.rxm.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -44,8 +47,10 @@ public class Location implements Serializable {
     @Column(name = "country_name")
     private String countryName;
 
-    @ManyToOne
-    private Customer customer;
+    @OneToMany(mappedBy = "location")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Customer> locations = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -111,12 +116,12 @@ public class Location implements Serializable {
         this.countryName = countryName;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public Set<Customer> getLocations() {
+        return locations;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setLocations(Set<Customer> customers) {
+        this.locations = customers;
     }
 
     @Override

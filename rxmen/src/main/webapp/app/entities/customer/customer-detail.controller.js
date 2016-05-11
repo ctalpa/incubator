@@ -5,9 +5,9 @@
         .module('rxmenApp')
         .controller('CustomerDetailController', CustomerDetailController);
 
-    CustomerDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Customer', 'Location', 'JobHistory'];
+    CustomerDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Customer', 'JobHistory', 'Location'];
 
-    function CustomerDetailController($scope, $rootScope, $stateParams, entity, Customer, Location, JobHistory) {
+    function CustomerDetailController($scope, $rootScope, $stateParams, entity, Customer, JobHistory, Location) {
         var vm = this;
         vm.customer = entity;
         
