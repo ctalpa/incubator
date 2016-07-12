@@ -1,0 +1,60 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCompanyVehiclesLabel" translate="prxmenApp.companyVehicles.home.createOrEditLabel">Create or edit a Company Vehicles</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.companyVehicles.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.companyVehicles.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="prxmenApp.companyVehicles.companyVehiclesId" for="field_companyVehiclesId">Company Vehicles Id</label>
+            <input type="number" class="form-control" name="companyVehiclesId" id="field_companyVehiclesId"
+                    ng-model="vm.companyVehicles.companyVehiclesId"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="prxmenApp.companyVehicles.numberPlate" for="field_numberPlate">Number Plate</label>
+            <input type="text" class="form-control" name="numberPlate" id="field_numberPlate"
+                    ng-model="vm.companyVehicles.numberPlate"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="prxmenApp.companyVehicles.vendorVehicle" for="field_vendorVehicle">Vendor Vehicle</label>
+            <input type="text" class="form-control" name="vendorVehicle" id="field_vendorVehicle"
+                    ng-model="vm.companyVehicles.vendorVehicle"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="prxmenApp.companyVehicles.modelVehicles" for="field_modelVehicles">Model Vehicles</label>
+            <input type="text" class="form-control" name="modelVehicles" id="field_modelVehicles"
+                    ng-model="vm.companyVehicles.modelVehicles"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="prxmenApp.companyVehicles.insuranceExpirationDate" for="field_insuranceExpirationDate">Insurance Expiration Date</label>
+                <div class="input-group">
+                    <input id="field_insuranceExpirationDate" type="text" class="form-control" name="insuranceExpirationDate" datetime-picker="{{dateformat}}" ng-model="vm.companyVehicles.insuranceExpirationDate" is-open="vm.datePickerOpenStatus.insuranceExpirationDate"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('insuranceExpirationDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,38 @@
+
+<div>
+    <h2><span translate="prxmenApp.vendor.detail.title">Vendor</span> {{vm.vendor.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="prxmenApp.vendor.vendorId">Vendor Id</span></dt>
+        <dd>
+            <span>{{vm.vendor.vendorId}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.vendor.businessName">Business Name</span></dt>
+        <dd>
+            <span>{{vm.vendor.businessName}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.vendor.description">Description</span></dt>
+        <dd>
+            <span>{{vm.vendor.description}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.vendor.piva">Piva</span></dt>
+        <dd>
+            <span>{{vm.vendor.piva}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.vendor.contact">Contact</span></dt>
+        <dd>
+            <a ui-sref="contact-detail({id:vm.vendor.contact.id})">{{vm.vendor.contact.id}}</a>
+        </dd>
+        <dt><span translate="prxmenApp.vendor.location">Location</span></dt>
+        <dd>
+            <a ui-sref="location-detail({id:vm.vendor.location.id})">{{vm.vendor.location.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

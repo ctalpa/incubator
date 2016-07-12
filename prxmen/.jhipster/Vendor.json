@@ -1,0 +1,45 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "contact",
+      "otherEntityName": "contact",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "location",
+      "otherEntityName": "location",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "vendorId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "businessName",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "piva",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160711140744",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "vendor"
+}

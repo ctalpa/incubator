@@ -1,0 +1,34 @@
+
+<div>
+    <h2><span translate="prxmenApp.companyVehicles.detail.title">Company Vehicles</span> {{vm.companyVehicles.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="prxmenApp.companyVehicles.companyVehiclesId">Company Vehicles Id</span></dt>
+        <dd>
+            <span>{{vm.companyVehicles.companyVehiclesId}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.companyVehicles.numberPlate">Number Plate</span></dt>
+        <dd>
+            <span>{{vm.companyVehicles.numberPlate}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.companyVehicles.vendorVehicle">Vendor Vehicle</span></dt>
+        <dd>
+            <span>{{vm.companyVehicles.vendorVehicle}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.companyVehicles.modelVehicles">Model Vehicles</span></dt>
+        <dd>
+            <span>{{vm.companyVehicles.modelVehicles}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.companyVehicles.insuranceExpirationDate">Insurance Expiration Date</span></dt>
+        <dd>
+            <span>{{vm.companyVehicles.insuranceExpirationDate | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

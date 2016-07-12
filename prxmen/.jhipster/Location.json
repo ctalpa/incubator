@@ -1,0 +1,60 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "one-to-many",
+      "relationshipName": "locations",
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "location"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipType": "one-to-many",
+      "relationshipName": "locations",
+      "otherEntityName": "vendor",
+      "otherEntityRelationshipName": "location"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "locationId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "streetAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "postalCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "stateProvince",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 6,
+      "fieldName": "regionName",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 7,
+      "fieldName": "countryName",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160711140746",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "location"
+}

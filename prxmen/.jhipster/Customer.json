@@ -1,0 +1,73 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "one-to-many",
+      "relationshipName": "customerToJobHistory",
+      "otherEntityName": "jobHistory",
+      "otherEntityRelationshipName": "customer"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "contact",
+      "otherEntityName": "contact",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipId": 3,
+      "relationshipName": "location",
+      "otherEntityName": "location",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "custumerId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "businessName",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "surname",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 6,
+      "fieldName": "customerType",
+      "fieldType": "CustomerType",
+      "fieldValues": "PERSON,COMPANY"
+    },
+    {
+      "fieldId": 7,
+      "fieldName": "piva",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 8,
+      "fieldName": "fiscalCode",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160711140743",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "entityTableName": "customer"
+}

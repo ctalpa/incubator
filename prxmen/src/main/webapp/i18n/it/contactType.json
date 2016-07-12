@@ -1,0 +1,12 @@
+{
+    "prxmenApp": {
+        "ContactType" : {
+            "null": "",
+            "FAX": "FAX",
+            "PHONE": "PHONE",
+            "CELLPHONE": "CELLPHONE",
+            "EMAIL": "EMAIL",
+            "SITE": "SITE"
+        }
+    }
+}

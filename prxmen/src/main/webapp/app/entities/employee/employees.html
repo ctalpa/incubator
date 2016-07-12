@@ -1,0 +1,93 @@
+<div>
+    <h2 translate="prxmenApp.employee.home.title">Employees</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="employee.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  translate="prxmenApp.employee.home.createLabel">
+                        Create new Employee
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'prxmenApp.employee.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="prxmenApp.employee.employeeId">Employee Id</span></th>
+                    <th><span translate="prxmenApp.employee.firstName">First Name</span></th>
+                    <th><span translate="prxmenApp.employee.lastName">Last Name</span></th>
+                    <th><span translate="prxmenApp.employee.email">Email</span></th>
+                    <th><span translate="prxmenApp.employee.phone">Phone</span></th>
+                    <th><span translate="prxmenApp.employee.businessPhone">Business Phone</span></th>
+                    <th><span translate="prxmenApp.employee.phiscalcode">Phiscalcode</span></th>
+                    <th><span translate="prxmenApp.employee.birthDay">Birth Day</span></th>
+                    <th><span translate="prxmenApp.employee.hireDate">Hire Date</span></th>
+                    <th><span translate="prxmenApp.employee.restWorkDays">Rest Work Days</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in vm.employees track by employee.id">
+                    <td><a ui-sref="employee-detail({id:employee.id})">{{employee.id}}</a></td>
+                    <td>{{employee.employeeId}}</td>
+                    <td>{{employee.firstName}}</td>
+                    <td>{{employee.lastName}}</td>
+                    <td>{{employee.email}}</td>
+                    <td>{{employee.phone}}</td>
+                    <td>{{employee.businessPhone}}</td>
+                    <td>{{employee.phiscalcode}}</td>
+                    <td>{{employee.birthDay | date:'medium'}}</td>
+                    <td>{{employee.hireDate | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="rest-work-days-detail({id:employee.restWorkDaysId})">{{employee.restWorkDaysId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="employee-detail({id:employee.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="employee.edit({id:employee.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="employee.delete({id:employee.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

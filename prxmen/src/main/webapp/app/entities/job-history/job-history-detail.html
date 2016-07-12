@@ -1,0 +1,30 @@
+
+<div>
+    <h2><span translate="prxmenApp.jobHistory.detail.title">Job History</span> {{vm.jobHistory.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="prxmenApp.jobHistory.startDate">Start Date</span></dt>
+        <dd>
+            <span>{{vm.jobHistory.startDate | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.jobHistory.endDate">End Date</span></dt>
+        <dd>
+            <span>{{vm.jobHistory.endDate | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.jobHistory.customer">Customer</span></dt>
+        <dd>
+            <a ui-sref="customer-detail({id:vm.jobHistory.customerId})">{{vm.jobHistory.customerId}}</a>
+        </dd>
+        <dt><span translate="prxmenApp.jobHistory.employee">Employee</span></dt>
+        <dd>
+            <a ui-sref="employee-detail({id:vm.jobHistory.employeeId})">{{vm.jobHistory.employeeId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

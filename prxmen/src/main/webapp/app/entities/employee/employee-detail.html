@@ -1,0 +1,54 @@
+
+<div>
+    <h2><span translate="prxmenApp.employee.detail.title">Employee</span> {{vm.employee.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="prxmenApp.employee.employeeId">Employee Id</span></dt>
+        <dd>
+            <span>{{vm.employee.employeeId}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.employee.firstName">First Name</span></dt>
+        <dd>
+            <span>{{vm.employee.firstName}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.employee.lastName">Last Name</span></dt>
+        <dd>
+            <span>{{vm.employee.lastName}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.employee.email">Email</span></dt>
+        <dd>
+            <span>{{vm.employee.email}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.employee.phone">Phone</span></dt>
+        <dd>
+            <span>{{vm.employee.phone}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.employee.businessPhone">Business Phone</span></dt>
+        <dd>
+            <span>{{vm.employee.businessPhone}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.employee.phiscalcode">Phiscalcode</span></dt>
+        <dd>
+            <span>{{vm.employee.phiscalcode}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.employee.birthDay">Birth Day</span></dt>
+        <dd>
+            <span>{{vm.employee.birthDay | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.employee.hireDate">Hire Date</span></dt>
+        <dd>
+            <span>{{vm.employee.hireDate | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.employee.restWorkDays">Rest Work Days</span></dt>
+        <dd>
+            <a ui-sref="rest-work-days-detail({id:vm.employee.restWorkDaysId})">{{vm.employee.restWorkDaysId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,36 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "one-to-many",
+      "relationshipName": "contacts",
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "contact"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipType": "one-to-many",
+      "relationshipName": "contacts",
+      "otherEntityName": "vendor",
+      "otherEntityRelationshipName": "contact"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "contactType",
+      "fieldType": "ContactType",
+      "fieldValues": "FAX,PHONE,CELLPHONE,EMAIL,SITE"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "contact",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160711140745",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "contact"
+}

@@ -1,0 +1,25 @@
+{
+    "prxmenApp": {
+        "restWorkDays" : {
+            "home": {
+                "title": "RestWorkDays",
+                "createLabel": "Create a new Rest Work Days",
+                "createOrEditLabel": "Create or edit a Rest Work Days",
+                "search": "Search for Rest Work Days"
+            },
+            "created": "A new Rest Work Days is created with identifier {{ param }}",
+            "updated": "A Rest Work Days is updated with identifier {{ param }}",
+            "deleted": "A Rest Work Days is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Rest Work Days {{ id }}?"
+            },
+            "detail": {
+                "title": "Rest Work Days"
+            },
+            "restWorkDaysStatus": "Rest Work Days Status",
+            "description": "Description",
+            "restEmployee": "Rest Employee",
+            "workDayOff": "Work Day Off"
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "prxmenApp": {
+        "TaskStatus" : {
+            "null": "",
+            "CREATED": "CREATED",
+            "RUNNING": "RUNNING",
+            "ENDED": "ENDED",
+            "SUSPENDED": "SUSPENDED"
+        }
+    }
+}

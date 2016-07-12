@@ -1,0 +1,10 @@
+{
+    "prxmenApp": {
+        "TaskType" : {
+            "null": "",
+            "PLANNED": "PLANNED",
+            "UNEXPECTED": "UNEXPECTED",
+            "REPETITIVE": "REPETITIVE"
+        }
+    }
+}

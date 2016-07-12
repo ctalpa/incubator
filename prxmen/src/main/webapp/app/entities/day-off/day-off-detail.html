@@ -1,0 +1,38 @@
+
+<div>
+    <h2><span translate="prxmenApp.dayOff.detail.title">Day Off</span> {{vm.dayOff.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="prxmenApp.dayOff.dayId">Day Id</span></dt>
+        <dd>
+            <span>{{vm.dayOff.dayId}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.dayOff.dayOffType">Day Off Type</span></dt>
+        <dd>
+            <span translate="{{'prxmenApp.DayOffType.' + vm.dayOff.dayOffType}}">{{vm.dayOff.dayOffType}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.dayOff.description">Description</span></dt>
+        <dd>
+            <span>{{vm.dayOff.description}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.dayOff.startDate">Start Date</span></dt>
+        <dd>
+            <span>{{vm.dayOff.startDate | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.dayOff.endDate">End Date</span></dt>
+        <dd>
+            <span>{{vm.dayOff.endDate | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="prxmenApp.dayOff.restWorkDays">Rest Work Days</span></dt>
+        <dd>
+            <a ui-sref="rest-work-days-detail({id:vm.dayOff.restWorkDays.id})">{{vm.dayOff.restWorkDays.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>
