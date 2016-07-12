@@ -18,8 +18,8 @@
             },
             "contactType": "Contact Type",
             "contact": "Contact",
-            "contacts": "Contacts",
-            "contacts": "Contacts"
+            "customer": "Customer",
+            "vendor": "Vendor"
         }
     }
 }

@@ -1,14 +1,11 @@
 package com.ctalpa.prxmen.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 import com.ctalpa.prxmen.domain.enumeration.ContactType;
@@ -35,15 +32,11 @@ public class Contact implements Serializable {
     @Column(name = "contact")
     private String contact;
 
-    @OneToMany(mappedBy = "contact")
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Customer> contacts = new HashSet<>();
+    @ManyToOne
+    private Customer customer;
 
-    @OneToMany(mappedBy = "contact")
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Vendor> contacts = new HashSet<>();
+    @ManyToOne
+    private Vendor vendor;
 
     public Long getId() {
         return id;
@@ -69,20 +62,20 @@ public class Contact implements Serializable {
         this.contact = contact;
     }
 
-    public Set<Customer> getContacts() {
-        return contacts;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setContacts(Set<Customer> customers) {
-        this.contacts = customers;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public Set<Vendor> getContacts() {
-        return contacts;
+    public Vendor getVendor() {
+        return vendor;
     }
 
-    public void setContacts(Set<Vendor> vendors) {
-        this.contacts = vendors;
+    public void setVendor(Vendor vendor) {
+        this.vendor = vendor;
     }
 
     @Override

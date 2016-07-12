@@ -4,7 +4,7 @@ describe('Controller Tests', function() {
 
     describe('Customer Management Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockCustomer, MockJobHistory, MockContact, MockLocation;
+        var MockEntity, MockCustomer, MockContact, MockLocation, MockJobHistory;
         var createController;
 
         beforeEach(inject(function($injector) {
@@ -12,9 +12,9 @@ describe('Controller Tests', function() {
             $scope = $rootScope.$new();
             MockEntity = jasmine.createSpy('MockEntity');
             MockCustomer = jasmine.createSpy('MockCustomer');
-            MockJobHistory = jasmine.createSpy('MockJobHistory');
             MockContact = jasmine.createSpy('MockContact');
             MockLocation = jasmine.createSpy('MockLocation');
+            MockJobHistory = jasmine.createSpy('MockJobHistory');
             
 
             var locals = {
@@ -22,9 +22,9 @@ describe('Controller Tests', function() {
                 '$rootScope': $rootScope,
                 'entity': MockEntity ,
                 'Customer': MockCustomer,
-                'JobHistory': MockJobHistory,
                 'Contact': MockContact,
-                'Location': MockLocation
+                'Location': MockLocation,
+                'JobHistory': MockJobHistory
             };
             createController = function() {
                 $injector.get('$controller')("CustomerDetailController", locals);

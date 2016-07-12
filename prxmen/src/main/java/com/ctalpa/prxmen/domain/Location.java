@@ -1,14 +1,11 @@
 package com.ctalpa.prxmen.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -47,15 +44,11 @@ public class Location implements Serializable {
     @Column(name = "country_name")
     private String countryName;
 
-    @OneToMany(mappedBy = "location")
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Customer> locations = new HashSet<>();
+    @ManyToOne
+    private Customer customer;
 
-    @OneToMany(mappedBy = "location")
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Vendor> locations = new HashSet<>();
+    @ManyToOne
+    private Vendor vendor;
 
     public Long getId() {
         return id;
@@ -121,20 +114,20 @@ public class Location implements Serializable {
         this.countryName = countryName;
     }
 
-    public Set<Customer> getLocations() {
-        return locations;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setLocations(Set<Customer> customers) {
-        this.locations = customers;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public Set<Vendor> getLocations() {
-        return locations;
+    public Vendor getVendor() {
+        return vendor;
     }
 
-    public void setLocations(Set<Vendor> vendors) {
-        this.locations = vendors;
+    public void setVendor(Vendor vendor) {
+        this.vendor = vendor;
     }
 
     @Override

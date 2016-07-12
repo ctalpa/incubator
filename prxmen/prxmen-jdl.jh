@@ -119,20 +119,20 @@ enum RestWorkDaysStatus {
 }
 
 relationship OneToMany {
-	Contact{contacts} to Customer
+	Customer{contacts} to Contact
 }
 
 relationship OneToMany {
-	Contact{contacts} to Vendor
+	Vendor{contacts} to Contact
 }
 
 
 relationship OneToMany {
-	Location{locations} to Customer
+	Customer{locations} to Location
 }
 
 relationship OneToMany {
-	Location{locations} to Vendor
+	Vendor{locations} to Location
 }
 
 

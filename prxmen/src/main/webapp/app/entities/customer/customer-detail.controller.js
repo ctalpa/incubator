@@ -5,9 +5,9 @@
         .module('prxmenApp')
         .controller('CustomerDetailController', CustomerDetailController);
 
-    CustomerDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Customer', 'JobHistory', 'Contact', 'Location'];
+    CustomerDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Customer', 'Contact', 'Location', 'JobHistory'];
 
-    function CustomerDetailController($scope, $rootScope, $stateParams, entity, Customer, JobHistory, Contact, Location) {
+    function CustomerDetailController($scope, $rootScope, $stateParams, entity, Customer, Contact, Location, JobHistory) {
         var vm = this;
 
         vm.customer = entity;

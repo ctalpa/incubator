@@ -20,8 +20,8 @@
             "businessName": "Business Name",
             "description": "Description",
             "piva": "Piva",
-            "contact": "Contact",
-            "location": "Location"
+            "contacts": "Contacts",
+            "locations": "Locations"
         }
     }
 }

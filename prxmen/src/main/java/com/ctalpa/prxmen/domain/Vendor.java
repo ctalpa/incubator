@@ -1,11 +1,14 @@
 package com.ctalpa.prxmen.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -35,11 +38,15 @@ public class Vendor implements Serializable {
     @Column(name = "piva")
     private String piva;
 
-    @ManyToOne
-    private Contact contact;
+    @OneToMany(mappedBy = "vendor")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Contact> contacts = new HashSet<>();
 
-    @ManyToOne
-    private Location location;
+    @OneToMany(mappedBy = "vendor")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Location> locations = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -81,20 +88,20 @@ public class Vendor implements Serializable {
         this.piva = piva;
     }
 
-    public Contact getContact() {
-        return contact;
+    public Set<Contact> getContacts() {
+        return contacts;
     }
 
-    public void setContact(Contact contact) {
-        this.contact = contact;
+    public void setContacts(Set<Contact> contacts) {
+        this.contacts = contacts;
     }
 
-    public Location getLocation() {
-        return location;
+    public Set<Location> getLocations() {
+        return locations;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setLocations(Set<Location> locations) {
+        this.locations = locations;
     }
 
     @Override

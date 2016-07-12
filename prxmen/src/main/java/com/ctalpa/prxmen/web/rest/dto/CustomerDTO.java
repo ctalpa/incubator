@@ -31,10 +31,6 @@ public class CustomerDTO implements Serializable {
     private String fiscalCode;
 
 
-    private Long contactId;
-    
-    private Long locationId;
-    
     public Long getId() {
         return id;
     }
@@ -97,22 +93,6 @@ public class CustomerDTO implements Serializable {
 
     public void setFiscalCode(String fiscalCode) {
         this.fiscalCode = fiscalCode;
-    }
-
-    public Long getContactId() {
-        return contactId;
-    }
-
-    public void setContactId(Long contactId) {
-        this.contactId = contactId;
-    }
-
-    public Long getLocationId() {
-        return locationId;
-    }
-
-    public void setLocationId(Long locationId) {
-        this.locationId = locationId;
     }
 
     @Override

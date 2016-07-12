@@ -3,23 +3,23 @@
     {
       "relationshipId": 1,
       "relationshipType": "one-to-many",
-      "relationshipName": "customerToJobHistory",
-      "otherEntityName": "jobHistory",
+      "relationshipName": "contacts",
+      "otherEntityName": "contact",
       "otherEntityRelationshipName": "customer"
     },
     {
       "relationshipId": 2,
-      "relationshipName": "contact",
-      "otherEntityName": "contact",
-      "relationshipType": "many-to-one",
-      "otherEntityField": "id"
+      "relationshipType": "one-to-many",
+      "relationshipName": "locations",
+      "otherEntityName": "location",
+      "otherEntityRelationshipName": "customer"
     },
     {
       "relationshipId": 3,
-      "relationshipName": "location",
-      "otherEntityName": "location",
-      "relationshipType": "many-to-one",
-      "otherEntityField": "id"
+      "relationshipType": "one-to-many",
+      "relationshipName": "customerToJobHistory",
+      "otherEntityName": "jobHistory",
+      "otherEntityRelationshipName": "customer"
     }
   ],
   "fields": [

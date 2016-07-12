@@ -38,18 +38,6 @@
                      />
         </div>
 
-        <div class="form-group">
-            <label translate="prxmenApp.vendor.contact" for="field_contact">Contact</label>
-            <select class="form-control" id="field_contact" name="contact" ng-model="vm.vendor.contact" ng-options="contact as contact.id for contact in vm.contacts track by contact.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label translate="prxmenApp.vendor.location" for="field_location">Location</label>
-            <select class="form-control" id="field_location" name="location" ng-model="vm.vendor.location" ng-options="location as location.id for location in vm.locations track by location.id">
-                <option value=""></option>
-            </select>
-        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">

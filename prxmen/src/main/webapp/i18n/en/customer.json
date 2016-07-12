@@ -24,9 +24,9 @@
             "customerType": "Customer Type",
             "piva": "Piva",
             "fiscalCode": "Fiscal Code",
-            "customerToJobHistory": "Customer To Job History",
-            "contact": "Contact",
-            "location": "Location"
+            "contacts": "Contacts",
+            "locations": "Locations",
+            "customerToJobHistory": "Customer To Job History"
         }
     }
 }

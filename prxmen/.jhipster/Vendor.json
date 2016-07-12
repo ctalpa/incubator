@@ -2,17 +2,17 @@
   "relationships": [
     {
       "relationshipId": 1,
-      "relationshipName": "contact",
+      "relationshipType": "one-to-many",
+      "relationshipName": "contacts",
       "otherEntityName": "contact",
-      "relationshipType": "many-to-one",
-      "otherEntityField": "id"
+      "otherEntityRelationshipName": "vendor"
     },
     {
       "relationshipId": 2,
-      "relationshipName": "location",
+      "relationshipType": "one-to-many",
+      "relationshipName": "locations",
       "otherEntityName": "location",
-      "relationshipType": "many-to-one",
-      "otherEntityField": "id"
+      "otherEntityRelationshipName": "vendor"
     }
   ],
   "fields": [

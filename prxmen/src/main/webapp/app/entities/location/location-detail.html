@@ -32,6 +32,14 @@
         <dd>
             <span>{{vm.location.countryName}}</span>
         </dd>
+        <dt><span translate="prxmenApp.location.customer">Customer</span></dt>
+        <dd>
+            <a ui-sref="customer-detail({id:vm.location.customer.id})">{{vm.location.customer.id}}</a>
+        </dd>
+        <dt><span translate="prxmenApp.location.vendor">Vendor</span></dt>
+        <dd>
+            <a ui-sref="vendor-detail({id:vm.location.vendor.id})">{{vm.location.vendor.id}}</a>
+        </dd>
     </dl>
 
     <button type="submit"

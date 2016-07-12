@@ -56,13 +56,17 @@ public class Customer implements Serializable {
     @OneToMany(mappedBy = "customer")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Contact> contacts = new HashSet<>();
+
+    @OneToMany(mappedBy = "customer")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Location> locations = new HashSet<>();
+
+    @OneToMany(mappedBy = "customer")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<JobHistory> customerToJobHistories = new HashSet<>();
-
-    @ManyToOne
-    private Contact contact;
-
-    @ManyToOne
-    private Location location;
 
     public Long getId() {
         return id;
@@ -136,28 +140,28 @@ public class Customer implements Serializable {
         this.fiscalCode = fiscalCode;
     }
 
+    public Set<Contact> getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(Set<Contact> contacts) {
+        this.contacts = contacts;
+    }
+
+    public Set<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Set<Location> locations) {
+        this.locations = locations;
+    }
+
     public Set<JobHistory> getCustomerToJobHistories() {
         return customerToJobHistories;
     }
 
     public void setCustomerToJobHistories(Set<JobHistory> jobHistories) {
         this.customerToJobHistories = jobHistories;
-    }
-
-    public Contact getContact() {
-        return contact;
-    }
-
-    public void setContact(Contact contact) {
-        this.contact = contact;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
     }
 
     @Override

@@ -12,6 +12,14 @@
         <dd>
             <span>{{vm.contact.contact}}</span>
         </dd>
+        <dt><span translate="prxmenApp.contact.customer">Customer</span></dt>
+        <dd>
+            <a ui-sref="customer-detail({id:vm.contact.customer.id})">{{vm.contact.customer.id}}</a>
+        </dd>
+        <dt><span translate="prxmenApp.contact.vendor">Vendor</span></dt>
+        <dd>
+            <a ui-sref="vendor-detail({id:vm.contact.vendor.id})">{{vm.contact.vendor.id}}</a>
+        </dd>
     </dl>
 
     <button type="submit"

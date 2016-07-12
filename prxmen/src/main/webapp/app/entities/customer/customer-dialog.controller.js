@@ -5,17 +5,17 @@
         .module('prxmenApp')
         .controller('CustomerDialogController', CustomerDialogController);
 
-    CustomerDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Customer', 'JobHistory', 'Contact', 'Location'];
+    CustomerDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Customer', 'Contact', 'Location', 'JobHistory'];
 
-    function CustomerDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Customer, JobHistory, Contact, Location) {
+    function CustomerDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Customer, Contact, Location, JobHistory) {
         var vm = this;
 
         vm.customer = entity;
         vm.clear = clear;
         vm.save = save;
-        vm.jobhistories = JobHistory.query();
         vm.contacts = Contact.query();
         vm.locations = Location.query();
+        vm.jobhistories = JobHistory.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
