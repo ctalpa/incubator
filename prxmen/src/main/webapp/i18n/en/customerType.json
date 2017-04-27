@@ -1,9 +1,0 @@
-{
-    "prxmenApp": {
-        "CustomerType" : {
-            "null": "",
-            "PERSON": "PERSON",
-            "COMPANY": "COMPANY"
-        }
-    }
-}
