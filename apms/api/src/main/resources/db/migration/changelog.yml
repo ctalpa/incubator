@@ -1,0 +1,9 @@
+databaseChangeLog:
+    - include:
+        author: Carmine
+        file: 20170126145000_create_users_table.sql
+        relativeToChangelogFile: true
+    - include:
+        author: Carmine
+        file: 20170126154200_create_oauth_tables.sql
+        relativeToChangelogFile: true
