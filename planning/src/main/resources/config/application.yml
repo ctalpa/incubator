@@ -1,0 +1,61 @@
+# Planning API default configuration
+
+#
+# ==================================================
+#  Overridable properties
+# ==================================================
+
+# WARNING: Think twice before changing the structure of the "app." section!!!
+#
+# The following "app" section must contain _only_ the properties
+# that are likely to be changed by a user (sysadmin, developer, etc)
+# at runtime. These properties will be preserved during upgrades
+# on production servers, so it is important that their names
+# and interpretation remain stable. These properties may be
+# referenced directly from Java code or in subsequent section in this
+# file using the ${...} syntax.
+#
+# The defaults in this file may be overriden with site-specific values in
+# property files in the "overrides" folder when running the application
+# in development environment.
+#
+# The example overrides are in git ("overrides.*.example"), while the "overrides"
+# directory is .gitignore'd, to avoid merge conflicts.
+#
+app:
+    # ABMS database connection parameters
+    db:
+        url: jdbc:postgresql://localhost/planning
+        user: planning
+        password: planning
+
+# ==================================================
+#  Spring
+# ==================================================
+spring:
+    application:
+        name: abms
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQL82Dialect
+        show-sql: true
+        properties:
+            hibernate.implicit_naming_strategy: it.ctalpa.planning.config.db.CustomImplicitNamingStrategy
+            hibernate.id.new_generator_mappings: true
+            hibernate.current_session_context_class: org.springframework.orm.hibernate4.SpringSessionContext
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: ${app.db.url}
+        username: ${app.db.user}
+        password: ${app.db.password}
+
+    favicon:
+        enabled: false
+
+
+# ==================================================
+#  Liquibase
+# ==================================================
+liquibase:
+    contexts: dev  # FIXME: unused? maybe remove
+    changeLog: classpath:/db/changelog.yml
+    enabled: true

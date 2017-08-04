@@ -1,10 +1,13 @@
 package it.ctalpa.planning.modules.Task;
 
-import java.io.Serializable;
+import it.ctalpa.planning.util.AuditedEntity;
+
+import javax.persistence.Table;
 
 /**
  * Created by c.talpa on 05/05/2017.
  */
-public class Task implements Serializable{
+@Table(name = "task")
+public class Task extends AuditedEntity {
 
 }
