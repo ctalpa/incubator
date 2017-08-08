@@ -1,7 +1,32 @@
 databaseChangeLog:
     - include:
-        file: 201706010943_create_users_table.sql
+        file: 201708070943_create_users_table.sql
         relativeToChangelogFile: true
+        author: Carmine Talpa
     - include:
-        file: 201706010944_create_roles_and_permissions.sql
+        file: 201708070944_create_roles_and_permissions.sql
         relativeToChangelogFile: true
+        author: Carmine Talpa
+    - changeSet:
+        id: 201708070950_add_default_users_roles_and_permissions
+        author: Carmine Talpa
+        changes:
+            - loadData:
+                file: db/migration/data/users.csv
+                tableName: users
+            - loadData:
+                file: db/migration/data/roles.csv
+                tableName: roles
+            - loadData:
+                file: db/migration/data/permissions.csv
+                tableName: permissions
+    - changeSet:
+        id: 201708070952_add_default_relation_users_roles_and_permissions
+        author: Carmine Talpa
+        changes:
+            - loadData:
+                file: db/migration/data/user_role.csv
+                tableName: user_role
+            - sql:
+                comment: Gives admin role every permission
+                sql: insert into role_permission(role_id, permission_id, created_by) select 1, id, created_by from permissions

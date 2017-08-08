@@ -1,6 +1,3 @@
---liquibase formatted sql
-
-
 create table users (
     id                  serial primary key,
     login               varchar(50)  not null unique,

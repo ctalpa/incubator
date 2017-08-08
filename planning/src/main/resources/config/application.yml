@@ -25,7 +25,7 @@
 app:
     # ABMS database connection parameters
     db:
-        url: jdbc:postgresql://localhost/planning
+        url: jdbc:postgresql://localhost:5432/planning
         user: planning
         password: planning
 
@@ -34,7 +34,7 @@ app:
 # ==================================================
 spring:
     application:
-        name: abms
+        name: planning
     jpa:
         database-platform: org.hibernate.dialect.PostgreSQL82Dialect
         show-sql: true
@@ -59,3 +59,26 @@ liquibase:
     contexts: dev  # FIXME: unused? maybe remove
     changeLog: classpath:/db/changelog.yml
     enabled: true
+
+
+# ==================================================
+# Logging defaults
+# ==================================================
+# These may be overridden in "overrides/logging.properties"
+logging:
+    # log to console?
+    consoleEnabled: true
+    # log to console in journald-friendly (Linux) format?
+    journaldConsoleEnabled: false
+    # log to file?
+    fileEnabled: false
+    fileMaxSize: 1MB
+    fileMaxIndex: 9
+    file: logs/abms.log
+    # default log levels
+    level:
+        root: WARN
+        it.ctalpa.planning: DEBUG
+        it.ctalpa.planning.aop.LoggingAspect: WARN
+    pattern:
+        level: User[%X{abms-mdc-data}] %5p

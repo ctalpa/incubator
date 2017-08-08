@@ -1,20 +1,23 @@
 package it.ctalpa.planning.modules.Role;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import it.ctalpa.planning.modules.Permission.Permission;
 import it.ctalpa.planning.modules.User.UserRole;
 import it.ctalpa.planning.util.AuditedEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Created by c.talpa on 15/05/2017.
  */
 @Entity
-@Table(name="role")
+@Table(name="roles")
 public class Role extends AuditedEntity {
 
     @Id
@@ -65,6 +68,12 @@ public class Role extends AuditedEntity {
         this.rolePermissions = rolePermissions;
     }
 
+    @Transient
+    public Collection<Permission> getPermissions() {
+        return getRolePermissions().stream()
+                .map(RolePermission::getPermission)
+                .collect(Collectors.toList());
+    }
 
     @Override
     public boolean equals(Object o) {

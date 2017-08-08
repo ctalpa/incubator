@@ -14,7 +14,7 @@ import java.util.Set;
  * Created by c.talpa on 22/05/2017.
  */
 @Entity
-@Table(name = "permission")
+@Table(name = "permissions")
 public class Permission extends AuditedEntity{
 
     @Id

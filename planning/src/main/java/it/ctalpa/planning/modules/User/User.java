@@ -1,19 +1,23 @@
 package it.ctalpa.planning.modules.User;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import it.ctalpa.planning.modules.Permission.Permission;
+import it.ctalpa.planning.modules.Role.Role;
 import it.ctalpa.planning.util.AuditedEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Created by c.talpa on 05/05/2017.
  */
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User extends AuditedEntity {
 
     @Id
@@ -38,7 +42,6 @@ public class User extends AuditedEntity {
     @Size(max = 60)
     private String password;
 
-    @NotNull
     @Size(max = 100)
     private String phone;
 
@@ -121,36 +124,33 @@ public class User extends AuditedEntity {
         this.userRoles = userRoles;
     }
 
+    @Transient
+    public Collection<String> getPermissions() {
+        return getRoles().stream().flatMap(role -> role.getPermissions().stream()).map(Permission::getName).distinct()
+                .collect(Collectors.toSet());
+    }
+
+    @Transient
+    public Collection<Role> getRoles() {
+        return getUserRoles().stream().map(UserRole::getRole).collect(Collectors.toList());
+    }
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         User user = (User) o;
 
-        if (id != null ? !id.equals(user.id) : user.id != null) return false;
-        if (login != null ? !login.equals(user.login) : user.login != null) return false;
-        if (name != null ? !name.equals(user.name) : user.name != null) return false;
-        if (surname != null ? !surname.equals(user.surname) : user.surname != null) return false;
-        if (email != null ? !email.equals(user.email) : user.email != null) return false;
-        if (phone != null ? !phone.equals(user.phone) : user.phone != null) return false;
-        if (password != null ? !password.equals(user.password) : user.password != null) return false;
-        if (contactInformation != null ? !contactInformation.equals(user.contactInformation) : user.contactInformation != null)
-            return false;
-        return userRoles != null ? userRoles.equals(user.userRoles) : user.userRoles == null;
+        return id != null ? id.equals(user.id) : user.id == null;
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (login != null ? login.hashCode() : 0);
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (surname != null ? surname.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (phone != null ? phone.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (contactInformation != null ? contactInformation.hashCode() : 0);
-        result = 31 * result + (userRoles != null ? userRoles.hashCode() : 0);
         return result;
     }
 
@@ -162,9 +162,6 @@ public class User extends AuditedEntity {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", contactInformation='" + contactInformation + '\'' +
-                ", userRoles=" + userRoles +
                 '}';
     }
 }

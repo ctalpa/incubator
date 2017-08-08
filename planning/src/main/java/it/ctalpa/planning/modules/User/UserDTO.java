@@ -89,4 +89,16 @@ public class UserDTO {
     public void setContactInformation(String contactInformation) {
         this.contactInformation = contactInformation;
     }
+
+
+    @Override
+    public String toString() {
+        return "UserDTO{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
