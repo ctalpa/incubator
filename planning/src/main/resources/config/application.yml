@@ -33,6 +33,8 @@ app:
 #  Spring
 # ==================================================
 spring:
+    profiles:
+        active: dev
     application:
         name: planning
     jpa:

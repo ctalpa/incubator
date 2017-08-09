@@ -1,5 +1,8 @@
 package it.ctalpa.planning.modules.User;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.validator.constraints.Email;
+
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
@@ -18,10 +21,12 @@ public class UserDTO {
 
     private String surname;
 
+    @Email
     private String email;
 
     private String phone;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     private String contactInformation;

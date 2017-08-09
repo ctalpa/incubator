@@ -27,7 +27,7 @@ public class UserController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('user_view')")
+    @PreAuthorize("hasAuthority('user_management_view')")
     public Page<UserDTO> getAllUser(@SortDefault(sort ={"login"}, direction = Sort.Direction.ASC) Pageable pageable) {
         final Page<User> userPage= userService.getAllUsers(pageable);
         final Page<UserDTO> userDTOPage = new PageImpl<UserDTO>(userMapper.toViewModel(userPage), pageable,userPage.getTotalElements());
@@ -38,7 +38,7 @@ public class UserController {
 
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('user_view')")
+    @PreAuthorize("hasAuthority('user_management_view')")
     public UserDTO getUserById(Integer userId){
 
         User user =userService.getUserById(userId);

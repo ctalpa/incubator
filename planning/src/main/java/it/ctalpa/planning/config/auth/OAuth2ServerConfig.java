@@ -13,11 +13,13 @@ public class OAuth2ServerConfig {
     private final DataSource dataSource;
 
     public OAuth2ServerConfig(DataSource dataSource) {
+
         this.dataSource = dataSource;
     }
 
     @Bean
     public TokenStore tokenStore() {
+
         return new JdbcTokenStore(dataSource);
     }
 }
