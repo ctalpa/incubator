@@ -1,0 +1,44 @@
+databaseChangeLog:
+    - include:
+        file: 201708070943_create_users_table.sql
+        relativeToChangelogFile: true
+        author: Carmine Talpa
+    - include:
+        file: 201708070944_create_roles_and_permissions.sql
+        relativeToChangelogFile: true
+        author: Carmine Talpa
+    - changeSet:
+        id: 201708070950_add_default_users_roles_and_permissions
+        author: Carmine Talpa
+        changes:
+            - loadData:
+                file: db/migration/data/users.csv
+                tableName: users
+            - loadData:
+                file: db/migration/data/roles.csv
+                tableName: roles
+            - loadData:
+                file: db/migration/data/permissions.csv
+                tableName: permissions
+    - changeSet:
+        id: 201708070952_add_default_relation_users_roles_and_permissions
+        author: Carmine Talpa
+        changes:
+            - loadData:
+                file: db/migration/data/user_role.csv
+                tableName: user_role
+            - sql:
+                comment: Gives admin role every permission
+                sql: insert into role_permission(role_id, permission_id, created_by) select 1, id, created_by from permissions
+    - include:
+        file: 201708081135_create_oauth_tables.sql
+        relativeToChangelogFile: true
+        author: Carmine Talpa
+    - changeSet:
+        id: 201708081136_add_default_oauth_settings
+        author: Carmine Talpa
+        changes:
+            - loadData:
+                file: db/migration/data/oauth_client_details.csv
+                tableName: oauth_client_details
+                separator: ;

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>1.5.3.RELEASE</version>
+    </parent>
+
+    <groupId>it.ctalpa</groupId>
+    <artifactId>planning</artifactId>
+    <version>00.00.001</version>
+
+    <!-- Properties -->
+    <properties>
+        <commons-codec.version>1.10</commons-codec.version>
+        <commons-io.version>2.5</commons-io.version>
+        <guava.version>19.0</guava.version>
+        <inflector.version>1.2.2</inflector.version>
+        <janino.version>2.7.8</janino.version>
+        <java.version>1.8</java.version>
+        <liquibase.version>3.5.3</liquibase.version>
+        <mapstruct.version>1.1.0.Final</mapstruct.version>
+        <postgresql.version>9.4.1212</postgresql.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <sortpom.version>2.8.0</sortpom.version>
+    </properties>
+
+    <!-- Dependencies -->
+    <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${commons-codec.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.atteo</groupId>
+            <artifactId>evo-inflector</artifactId>
+            <version>${inflector.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>${liquibase.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.janino</groupId>
+            <artifactId>janino</artifactId>
+            <version>${janino.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-jdk8</artifactId>
+            <version>${mapstruct.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!--Build -->
+    <build>
+        <defaultGoal>spring-boot:run</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>com.github.ekryd.sortpom</groupId>
+                <artifactId>sortpom-maven-plugin</artifactId>
+                <version>${sortpom.version}</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sort</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <sortProperties>true</sortProperties>
+                    <nrOfIndentSpace>4</nrOfIndentSpace>
+                    <sortDependencies>groupId,artifactId</sortDependencies>
+                    <sortPlugins>groupId,artifactId</sortPlugins>
+                    <keepBlankLines>true</keepBlankLines>
+                    <expandEmptyElements>false</expandEmptyElements>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.bsc.maven</groupId>
+                <artifactId>maven-processor-plugin</artifactId>
+                <version>2.2.4</version>
+                <executions>
+                    <execution>
+                        <id>process</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>process</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.mapstruct</groupId>
+                        <artifactId>mapstruct-processor</artifactId>
+                        <version>${mapstruct.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <defaultOutputDirectory>${project.build.directory}/generated-sources</defaultOutputDirectory>
+                    <processors>
+                        <processor>org.mapstruct.ap.MappingProcessor</processor>
+                    </processors>
+                    <options>
+                        <mapstruct.defaultComponentModel>spring</mapstruct.defaultComponentModel>
+                    </options>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
