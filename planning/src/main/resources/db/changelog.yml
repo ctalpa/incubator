@@ -1,0 +1,5 @@
+databaseChangeLog:
+    # Database Migrations
+    - include:
+        file: migration/changelog.yml
+        relativeToChangelogFile: true
