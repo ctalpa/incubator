@@ -1,17 +1,13 @@
 package it.ctalpa.planning.modules.Contact;
 
-import it.ctalpa.planning.util.AuditedEntity;
-
-import javax.persistence.*;
+import javax.persistence.Id;
 
 /**
- * Created by c.talpa on 05/05/2017.
+ * Created by c.talpa on 24/05/2017.
  */
-@Entity
-@Table(name="address")
-public class Address extends AuditedEntity {
+public class AdressDTO {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String street;
@@ -110,15 +106,5 @@ public class Address extends AuditedEntity {
 
     public void setNote(String note) {
         this.note = note;
-    }
-
-    @Override
-    public String toString() {
-        return "Address{" +
-                "id=" + id +
-                ", street='" + street + '\'' +
-                ", streetNumber='" + streetNumber + '\'' +
-                ", city='" + city + '\'' +
-                '}';
     }
 }
