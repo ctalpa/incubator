@@ -25,9 +25,9 @@
 app:
     # ABMS database connection parameters
     db:
-        url: jdbc:postgresql://localhost:5432/planning
-        user: planning
-        password: planning
+        url: jdbc:postgresql://localhost:5432/apidb
+        user: apidb
+        password: apidb
 
 # ==================================================
 #  Spring
@@ -36,7 +36,7 @@ spring:
     profiles:
         active: dev
     application:
-        name: planning
+        name: api
     jpa:
         database-platform: org.hibernate.dialect.PostgreSQL82Dialect
         show-sql: true

@@ -1,17 +1,19 @@
 ${AnsiColor.GREEN}
+               AAA               PPPPPPPPPPPPPPPPP   IIIIIIIIII
+              A:::A              P::::::::::::::::P  I::::::::I
+             A:::::A             P::::::PPPPPP:::::P I::::::::I
+            A:::::::A            PP:::::P     P:::::PII::::::II
+           A:::::::::A             P::::P     P:::::P  I::::I
+          A:::::A:::::A            P::::P     P:::::P  I::::I
+         A:::::A A:::::A           P::::PPPPPP:::::P   I::::I
+        A:::::A   A:::::A          P:::::::::::::PP    I::::I
+       A:::::A     A:::::A         P::::PPPPPPPPP      I::::I
+      A:::::AAAAAAAAA:::::A        P::::P              I::::I
+     A:::::::::::::::::::::A       P::::P              I::::I
+    A:::::AAAAAAAAAAAAA:::::A      P::::P              I::::I
+   A:::::A             A:::::A   PP::::::PP          II::::::II
+  A:::::A               A:::::A  P::::::::P          I::::::::I
+ A:::::A                 A:::::A P::::::::P          I::::::::I
+AAAAAAA                   AAAAAAAPPPPPPPPPP          IIIIIIIIII
 
-
- _______   __                                __
-|       \ |  \                              |  \
-| $$$$$$$\| $$  ______   _______   _______   \$$ _______    ______
-| $$__/ $$| $$ |      \ |       \ |       \ |  \|       \  /      \
-| $$    $$| $$  \$$$$$$\| $$$$$$$\| $$$$$$$\| $$| $$$$$$$\|  $$$$$$\
-| $$$$$$$ | $$ /      $$| $$  | $$| $$  | $$| $$| $$  | $$| $$  | $$
-| $$      | $$|  $$$$$$$| $$  | $$| $$  | $$| $$| $$  | $$| $$__| $$
-| $$      | $$ \$$    $$| $$  | $$| $$  | $$| $$| $$  | $$ \$$    $$
- \$$       \$$  \$$$$$$$ \$$   \$$ \$$   \$$ \$$ \$$   \$$ _\$$$$$$$
-                                                          |  \__| $$
-                                                           \$$    $$
-                                                            \$$$$$$
-
-${AnsiColor.BRIGHT_BLUE}Planning API :: Spring Boot ${spring-boot.version}${AnsiColor.DEFAULT}
+${AnsiColor.BRIGHT_BLUE} API :: Spring Boot ${spring-boot.version}${AnsiColor.DEFAULT}

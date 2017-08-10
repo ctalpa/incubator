@@ -9,7 +9,7 @@
     </parent>
 
     <groupId>it.ctalpa</groupId>
-    <artifactId>planning</artifactId>
+    <artifactId>api</artifactId>
     <version>00.00.001</version>
 
     <!-- Properties -->

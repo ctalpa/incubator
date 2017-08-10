@@ -125,12 +125,14 @@ public class User extends AuditedEntity {
     }
 
     @Transient
+    @JsonIgnore
     public Collection<String> getPermissions() {
         return getRoles().stream().flatMap(role -> role.getPermissions().stream()).map(Permission::getName).distinct()
                 .collect(Collectors.toSet());
     }
 
     @Transient
+    @JsonIgnore
     public Collection<Role> getRoles() {
         return getUserRoles().stream().map(UserRole::getRole).collect(Collectors.toList());
     }
